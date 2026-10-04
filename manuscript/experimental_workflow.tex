@@ -1,0 +1,139 @@
+\section{Experimental design and discovery path}
+\label{sec:experimental-design}
+
+\subsection{Objects, arithmetic, and inclusion rules}
+
+The experiment concerns the filtration of $\theta^i f$ modulo $p^2$ for
+ordinary level-one modular forms of weight $4\leq k<p-1$.  Every reported
+comparison uses exact integer arithmetic.  Fourier expansions are retained
+past the Sturm bound at each relevant weight, so equality of the retained
+series is an exact equality of modular forms in the tested case.  No
+floating-point approximation, numerical tolerance, random sampling, or
+model fitting is used.
+
+The computational record contains $5{,}572$ cells.  Of these, $5{,}434$
+satisfy the ordinary condition $k<p-1$.  The main experiment
+uses the $692$ ordinary, nondegenerate cells for which a $D=0$ index and its
+Tate complement lie in the proved $D=2$ wedge.  These cells range over
+primes $17\leq p\leq43$ and weights $8\leq k\leq22$.  A cell is included by
+these arithmetic conditions alone, before its obstruction class or the
+value of the candidate quadratic is inspected.
+
+For each cell, the program performs four exact operations:
+\begin{enumerate}
+\item reduce $\theta^if$ modulo $p^2$ against an integral echelon basis of
+      $M_{w_-}$;
+\item divide the resulting canonical remainder by $p$ and reduce modulo
+      $p$, producing the lower Bockstein class $\mathcal B_i$;
+\item independently construct the shifted leading-block candidate
+      \[
+      \mathcal L_i=q_1(n,i')X^p\theta^{i-p}f,
+      \qquad
+      q_1(n,i')=i'^2+(k-1)i'-(n+1)(n+2);
+      \]
+\item compare the complete canonical remainders, not a selected coordinate
+      or a short Fourier prefix.
+\end{enumerate}
+The program records both agreements and failures.  For each failure, it
+stores the full residual
+$\mathcal B_i-\mathcal L_i$ whenever the proposed identity fails.
+
+\subsection{How the pattern was found}
+
+We found the pattern in stages.  The first candidate reused the $D=2$
+formula one Hasse step lower.  It failed in all $1{,}593$ ordinary,
+nondegenerate $D=0$ cells.  This negative control showed that a new
+first-order correction was needed.
+
+Reflection to the complementary wedge then suggested replacing the earlier
+quadratic $i'^2+(k-1)i'-n(n+1)$ by $q_1(n,i')$.  On the $692$ cross-wedge
+cells, the resulting class agreed with the direct Bockstein in $458$ cases.
+The $234$ disagreements did not scatter: they were exactly the cells on
+the three affine lines
+\[
+ i'=n+2,
+ \qquad i'+n=2p-k-1,
+ \qquad i'+n=2p-k.
+\]
+Each line contains $78$ cells.  Away from these lines, the direct class
+vanished in exactly $20$ cases, and these were exactly the cases
+$q_1(n,i')=0$.  Thus the shifted conic was found only after the first
+formula failed and the full residuals identified the three boundary cases.
+
+The boundary residuals suggested further exact formulas.  On $i'=n+2$ the
+residual always occupied one explicit block direction, and rational
+reconstruction across primes produced the scalar
+\[
+ -m(k-2m-2)!,\qquad m=p-2-n.
+\]
+On the two triangular lines, exact elimination placed every residual in an
+explicit triangular span and recovered endpoint coefficient $-(m+1)$.
+These results led to the Hasse-jet and filtration arguments proved below.
+
+\input{experimental_workflow_figure.tex}
+
+\subsection{Validation and negative controls}
+
+Table~\ref{tab:experimental-audit} separates discovery calculations,
+blind extensions, independent form tests, and symbolic-index audits.  A
+zero failure count means that the stated exact identity held throughout the
+specified finite range.  It does not convert the identity into a theorem
+for arbitrary primes.
+
+\begin{table}[t]
+\centering
+\small
+\renewcommand{\arraystretch}{1.13}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Audit & Exact range & Outcome\\
+\midrule
+Ordinary-cell census & $5{,}434$ cells & Establishes the ambient finite
+record and its admissible subfamilies.\\
+Naive lower-block control & $1{,}593$ $D=0$ cells & The reused $D=2$
+formula failed in all cells, isolating the missing projection term.\\
+Cross-wedge discovery & $692$ cells & $458$ interior matches, $234$
+boundary disagreements, and $20$ shifted-conic zeros.\\
+Explicit first-Hasse-jet lift & The same $692$ cells & No weight,
+mod-$p$, or canonical-Bockstein mismatch.\\
+Third-line blind extension & $464$ cells through $p=61$ & No zero
+residual, block-shape failure, or factorial-scalar mismatch.\\
+Independent weight-$24$ forms & $186$ ordinary forms and $1{,}860$ tests
+through $p=43$ & No zero residual, block-shape failure, or scalar mismatch.\\
+Triangular endpoints & $156$ boundary cells & Endpoint rank increased by
+one and the coefficient was $-(m+1)$ in every case.\\
+Index and filtration audit & $210{,}176$ parameter cells through $p=101$ &
+No exponent, weight, pairing, or filtration-gap failure.\\
+\bottomrule
+\end{tabularx}
+\caption{Exact audits used in the discovery and validation of the proposed
+shifted-conic mechanism.  The two large validation experiments were written
+as falsification tests: they count zero residuals, shape failures, and scalar
+mismatches separately.}
+\label{tab:experimental-audit}
+\end{table}
+
+The weight-$24$ experiment is important because the relevant cusp-form
+space is two-dimensional.  It tests two generators and their projective
+linear combinations rather than repeating the calculation on a single
+one-dimensional family.  The third-line extension is also separate from
+the original $78$ boundary cells: it searches new primes and weights after
+the one-block shape and factorial scalar have been specified.
+
+\subsection{What would falsify the conjectural mechanism}
+
+Each computational claim has a direct failure test.  Any of the following
+would disprove part of the proposed mechanism:
+\begin{enumerate}
+\item an interior cross-wedge cell with
+      $\mathcal B_i\neq q_1(n,i')X^p\theta^{i-p}f$;
+\item a cell with $q_1(n,i')=0$ and nonzero interior Bockstein, or an
+      interior zero with $q_1(n,i')\neq0$;
+\item a third-line residual outside the predicted one-block direction;
+\item a third-line scalar different from $-m(k-2m-2)!$ or dependent on the
+      chosen ordinary form;
+\item a triangular residual outside the stated span or with endpoint
+      coefficient different from $-(m+1)$.
+\end{enumerate}
+The released scripts report each failure type separately.  The tests remain
+useful even though the factorial block reduction is still open.

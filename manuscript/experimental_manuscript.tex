@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[expansion=false]{microtype}
+\emergencystretch=2em
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{conjecture}[definition]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[definition]{Remark}
+
+\title{Experiments with Theta Cycles Modulo $p^2$:\\
+Hasse-Jet Duality and a Shifted-Conic Conjecture}
+\author{Jeffery Opoku\\
+\small School of Mathematical and Statistical Sciences\\
+\small University of Texas Rio Grande Valley, Edinburg, Texas 78539, USA\\
+\small \texttt{jeffery.opoku01@utrgv.edu}}
+\date{4 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the unresolved weight filtration of theta iterates modulo $p^2$
+with exact computation.  In $692$ ordinary cross-wedge cells, one shifted
+quadratic matches every interior obstruction.  All $234$ failures lie on
+three affine boundary lines.  Two further tests give $2{,}324$ exact matches
+with one factorial boundary scalar.  We also prove four facts.  The
+obstruction is a first Hasse jet.  The relevant Hasse quotients have a
+perfect pairing.  Theta is skew-adjoint for this pairing.  The
+minimal-weight projection is explicit, and exact filtration separates the
+boundary directions.  These facts reduce the shifted-conic law to one
+factorial block identity and two endpoint identities.  We state these open
+identities as conjectures.  The paper includes code, negative controls, and
+exact tests that could disprove them.
+\end{abstract}
+
+\noindent\textbf{Keywords:} theta cycles; modular forms modulo prime powers;
+experimental mathematics; Hasse invariant; Bockstein class; weight
+filtration.
+
+\noindent\textbf{2020 Mathematics Subject Classification:}
+11F33, 11F11, 11Y40.
+
+\section{Introduction}
+
+The theta cycle of a modular form modulo a prime is classical.  Modulo
+$p^2$, weight lowering contains a new first-order obstruction: a form that
+lowers in weight modulo $p$ need not admit the same lowering modulo $p^2$.
+Ahlgren, Raum, and Richter determined the initial segment and many later
+parts of the cycle \cite{ARR2026}.  Some low points in the next band are
+still not known for all primes.
+
+We began with one exact question.  Does the quadratic pattern in the
+resolved wedge remain valid after reflection into the next wedge?  The
+first candidate failed on every tested $D=0$ cell.  We then added the
+missing minimal-weight projection.  In the interior, the lower Bockstein
+class was controlled by
+\begin{equation}\label{eq:intro-shifted-conic-experimental}
+ i'^2+(k-1)i'-(n+1)(n+2)\quad\text{in }\mathbb F_p.
+\end{equation}
+All disagreements occurred on three affine lines.  Their full residuals
+then suggested one factorial block and two triangular endpoint formulas.
+
+The paper records how this formula was found and how it was tested.  The
+calculation uses exact modular arithmetic and Sturm-safe remainders.  It
+also includes a failed baseline, a blind prime extension, and a separate
+test in a two-dimensional cusp-form space.  We then prove the geometric
+facts behind the experiment.  The weight-lowering obstruction is a first
+Hasse jet.  The ambient quotient has a perfect pairing, and theta is
+skew-adjoint.  Multiplication by the integral Hasse inclusion commutes with
+theta modulo $p^2$.  We also give an explicit formula for the minimal-weight
+projection.  Exact filtration separates the proposed boundary directions.
+
+The open part is small but important.  The first-Hasse-jet formula should
+reduce to a factorial block identity.  This identity would imply the generic
+shifted-conic law and the observed scalar on the third line.  Two endpoint
+coefficients remain open on the other boundary lines.  We do not call these
+statements theorems because the present evidence is finite.
+
+The experiments are part of the main argument.  They identify the
+classification problem and the three boundary cases.  The theorems explain
+the form of the candidate and reduce the open part to explicit identities.
+
+\subsection{Relation to prior work}
+
+Ahlgren--Raum--Richter \cite{ARR2026} prove the initial segment, further
+exact values or bounds modulo $p^2$, and a quadratic condition for the
+exceptional positions in their resolved region.  For comparison, the
+included code checks the resolved $D=2$ subwedge, whose conic is
+\[
+ i'^2+(k-1)i'-n(n+1)=0.
+\]
+The present experiment studies the complementary $D=0$ subwedge.
+Reflection changes the constant term to $(n+1)(n+2)$.  A new first-Hasse-jet
+projection is needed before this expression gives the actual obstruction.
+The result is not a restatement of Ahlgren--Raum--Richter, and the geometric
+pairing alone does not prove the shifted-conic law.
+
+\subsection{Guide to the paper}
+
+Section~\ref{sec:experimental-design} states the finite experiment, its
+negative controls, validation layers, and failure criteria.  The next two
+sections develop the first-Hasse-jet and direct block calculations.
+Section~\ref{sec:experimental-interpretation} separates what the experiments
+establish from what remains open.  The final sections formulate the
+shifted-conic consequences, summarize theorem status, and give commands for
+exact reproduction.
+
+\input{experimental_workflow.tex}
+
+\input{notation_and_roadmap.tex}
+
+\section{Bocksteins and Hasse quotients}
+\input{bockstein_lemma.tex}
+\input{hasse_pairing_theta_adjointness.tex}
+\input{bockstein_hasse_realization.tex}
+\input{bockstein_adjointness_criterion.tex}
+
+\section{Direct calculation in the lower subwedge}
+\input{d0_direct_factor_route.tex}
+
+\input{experimental_discussion.tex}
+
+\input{transactions_theorem_skeleton.tex}
+
+\section{Remaining symbolic identities}
+
+Theorem~\ref{thm:explicit-periodic-first-jet} constructs the minimal
+mod-$p$ representative in characteristic zero and computes its normal
+coefficient along the Hasse divisor.  A complete cross-wedge theorem now
+requires the factorial block reduction in
+Conjecture~\ref{conj:factorial-block-reduction} and the two triangular
+associated-graded endpoint coefficients.  The residual directions and their
+independence are already proved.  The open task is to simplify the explicit
+operator formula in the direct block basis.
+
+On the third line, that simplification predicts
+\[
+ \mathcal B_i-\mathcal L_i
+ =-m(k-2m-2)!
+ X^{k-2m-1}\theta^{p-k}f.
+\]
+The displayed block is nonzero by
+Proposition~\ref{prop:l3-block-nonzero}, and the scalar is a unit by
+Proposition~\ref{prop:l3-closed-scalar-unit}.  Thus the unresolved point is
+not nonvanishing, but identification of the computed scalar with the formal
+block reduction for every admissible parameter set.
+
+\section{Conclusion}
+
+The exact experiments find a shifted quadratic in the interior of the next
+theta-cycle wedge.  They also find three different boundary residuals.  The
+geometric and filtration arguments place these residuals in the predicted
+quotient directions.  An explicit first-Hasse-jet formula reduces the
+remaining problem to three coefficient identities.  The factorial block
+reduction and the two triangular endpoint identities remain open.  The
+table below separates theorems, finite results, and conjectures.
+
+\clearpage
+\input{theorem_status_table.tex}
+
+\appendix
+\input{computational_appendix.tex}
+
+\section*{Data and code availability}
+
+The public release contains the cell tables, obstruction coordinates,
+source code, and commands used for every computational count in this paper.
+It contains only research files.  The permanent repository links are given
+in the submission record.
+
+\begin{thebibliography}{99}
+\raggedright
+\bibitem{ARR2026}
+S. Ahlgren, M. Raum, and O. K. Richter,
+\emph{Theta cycles of modular forms modulo $p^2$},
+Canad. J. Math. (2026), First View, 1--18,
+published online 13 April 2026,
+doi:10.4153/S0008414X2610220X.
+
+\bibitem{ChenKiming2016}
+I. Chen and I. Kiming,
+\emph{On the theta operator for modular forms modulo prime powers},
+Mathematika \textbf{62} (2016), 321--336,
+doi:10.1112/S0025579315000212.
+
+\bibitem{ChidaKaneko2007}
+M. Chida and M. Kaneko,
+\emph{On ordinary primes for modular forms and the theta operator},
+Proc. Amer. Math. Soc. \textbf{135} (2007), 1005--1008,
+doi:10.1090/S0002-9939-06-08561-3.
+
+\bibitem{Gross1990}
+B. H. Gross,
+\emph{A tameness criterion for Galois representations associated to
+modular forms (mod $p$)},
+Duke Math. J. \textbf{61} (1990), 445--517.
+
+\bibitem{Katz1977}
+N. M. Katz,
+\emph{A result on modular forms in characteristic $p$},
+in \emph{Modular Functions of One Variable V},
+Lecture Notes in Math. 601, Springer, 1977, 53--61.
+
+\end{thebibliography}
+
+\end{document}

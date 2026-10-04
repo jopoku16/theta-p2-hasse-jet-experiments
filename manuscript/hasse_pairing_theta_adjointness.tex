@@ -1,0 +1,240 @@
+\subsection{Hasse duality and the Eisenstein bridge}
+
+Let $p\geq5$, put $P=p(p-1)$, and work first on a compactified Katz
+modular curve $X$ with auxiliary full level $3$. Let $\omega$
+be the Hodge bundle, let $C$ be the cusp divisor, and let
+$A\in H^0(X,\omega^{p-1})$ be the Hasse invariant. Its zero divisor
+$S$ is reduced and disjoint from $C$. Put $Z=pS$, so that $Z$ is the
+Cartier divisor cut out by $A^p$. For every integer $r$ define
+\[
+ \mathcal Q_r:=\omega^r/A^p\omega^{r-P}
+              \simeq \omega^r\vert_Z,
+ \qquad Q_r:=H^0(Z,\mathcal Q_r).
+\]
+The constructions below commute with the tame deck group. Its order is
+prime to $p$, so the Reynolds operator is exact.  The canonical pairing
+below is deck-invariant, and its restriction to invariant subspaces is
+perfect.  This gives the same statement at level one.  Equivalently, one
+may formulate it directly on the tame compactified moduli stack.
+
+\begin{proposition}[Perfect Hasse-quotient pairing]
+\label{prop:hasse-perfect-pairing}
+For every $r$ there is a canonical perfect pairing
+\[
+ \langle\ ,\ \rangle_r:
+ Q_r\times Q_{P+2-r}\longrightarrow \mathbb F_p.
+\]
+It is the product pairing followed by the trace map on the finite
+Gorenstein scheme $Z$.
+\end{proposition}
+
+\begin{proof}
+Because $Z$ is an effective Cartier divisor on the smooth curve $X$, its
+dualizing sheaf is
+\[
+ \omega_Z\simeq\bigl(\omega_X\otimes\mathcal O_X(Z)\bigr)\vert_Z.
+\]
+Kodaira--Spencer gives $\omega_X(C)\simeq\omega^2$, while
+$\mathcal O_X(Z)\simeq\omega^P$. The canonical section of
+$\mathcal O_X(C)$ is nonzero on $Z$, since $C\cap Z=\varnothing$.
+Consequently
+\[
+ \omega_Z\simeq\omega^{P+2}\vert_Z.
+\]
+Multiplication now gives
+\[
+ \mathcal Q_r\otimes\mathcal Q_{P+2-r}\longrightarrow\omega_Z.
+\]
+Composing global sections with
+$\operatorname{Tr}_Z:H^0(Z,\omega_Z)\to\mathbb F_p$ gives the displayed
+pairing. Duality for the finite Gorenstein scheme $Z$ identifies
+$\mathcal Q_{P+2-r}$ with
+$\mathcal Hom_Z(\mathcal Q_r,\omega_Z)$, so the pairing is perfect.
+\end{proof}
+
+Let $\Theta$ denote the Katz theta operator in characteristic $p$,
+normalized by its $q$-expansion
+\[
+ \Theta\!\left(\sum a_nq^n\right)=\sum n a_nq^n.
+\]
+It raises weight by $p+1$, satisfies the product rule, and satisfies
+$\Theta(A)=0$. Hence it induces
+\[
+ \Theta:Q_r\longrightarrow Q_{r+p+1}.
+\]
+
+\begin{proposition}[Theta adjointness]
+\label{prop:theta-adjointness}
+If $x\in Q_r$ and $y\in Q_{P+1-p-r}$, then
+\[
+ \langle\Theta x,y\rangle_{r+p+1}
+   =-\langle x,\Theta y\rangle_r.
+\]
+More generally, for $m\geq0$ and
+$y\in Q_{P+2-r-m(p+1)}$,
+\[
+ \langle\Theta^m x,y\rangle_{r+m(p+1)}
+   =(-1)^m\langle x,\Theta^m y\rangle_r.
+\]
+\end{proposition}
+
+\begin{proof}
+The two products in the first formula have weight $P+2$, so both traces
+are defined. The product rule gives
+\[
+ (\Theta x)y+x(\Theta y)=\Theta(xy).
+\]
+Notice that $xy$ has weight
+\[
+ P+1-p=(p-1)^2.
+\]
+Let $a$ be the canonical section on the Igusa curve, normalized by
+$a^{p-1}=A$. The differential attached to $\Theta(xy)$ is
+$\Theta(xy)/a^P=\Theta(xy)/A^p$ under Kodaira--Spencer, and it is exact;
+this is the geometric description of theta in Gross, Proposition~5.8
+(equivalently, it follows locally by differentiating the function attached
+to $xy$). The residues of this differential at the supersingular points
+are exactly the local components of the trace in
+Proposition~\ref{prop:hasse-perfect-pairing}. An exact differential has zero
+residue, so
+$\operatorname{Tr}_Z(\Theta(xy))=0$. This proves the first identity.
+Iteration proves the second.
+
+For completeness, the nonreduced trace can be seen locally.  At a point
+$s\in S$, choose a parameter $t$ for which $A$ is a unit times $t$.
+Then $Z$ has local ring $k(s)[t]/(t^p)$, and the Grothendieck trace is the
+coefficient of $t^{p-1}$, followed by
+$\operatorname{Tr}_{k(s)/\mathbb F_p}$, up to a common unit fixed by the
+chosen trivialization.  The coefficient of $t^{p-1}$ in the derivative of
+a polynomial modulo $t^p$ is zero: it could only come from the derivative
+of $t^p$, whose coefficient is $p=0$.  Thus the local trace of the exact
+differential vanishes on the full thickening $pS$, not merely on its
+reduced support.
+\end{proof}
+
+The weight relation relevant to the Tate complement contains a further
+shift of $p(p+1)$.  Let
+\[
+ B:=E_{p+1}\pmod p\in H^0(X,\omega^{p+1}).
+\]
+
+\begin{lemma}[The Eisenstein bridge is a unit]
+\label{lem:eisenstein-unit}
+The forms $A$ and $B$ have no common zero.  Hence $B\vert_Z$ is a unit and
+multiplication by $B^p$ gives an isomorphism
+\[
+ B^p:Q_r\xrightarrow{\ \sim\ }Q_{r+p(p+1)}
+\]
+for every $r$.
+\end{lemma}
+
+\begin{proof}
+The Hasse invariant has a simple zero at every point of $S$.  Let
+$\partial_k=\Theta-kE_2/12$ be the Serre derivative in weight $k$.  The
+Ramanujan--Serre identity and the $q$-expansion principle give
+\[
+ 12\partial_{p-1}A=B
+ \qquad\text{in characteristic }p.
+\]
+At a zero of $A$, the connection term is a multiple of $A$ and vanishes.
+Thus $\partial_{p-1}A$ is the ordinary derivative of a local equation for
+$S$, up to a nonzero change of trivialization.  It is nonzero because the
+zero is simple.  Therefore $B$ does not vanish on $S$.  Its restriction to
+the Artinian thickening $Z$ is consequently invertible, and so is $B^p$.
+\end{proof}
+
+\begin{theorem}[Perfect Tate-complement pairing]
+\label{thm:tate-complement-pairing}
+For every $r$ the formula
+\[
+ [x,z]_r:=\langle x,B^{-p}z\rangle_r
+\]
+defines a canonical perfect pairing
+\[
+ [\ ,\ ]_r:
+ Q_r\times Q_{P+2+p(p+1)-r}\longrightarrow\mathbb F_p.
+\]
+Under this pairing theta is skew-adjoint.  More precisely, if
+\[
+ z\in Q_{P+1-p+p(p+1)-r},
+\]
+then
+\[
+ [\Theta x,z]_{r+p+1}=-[x,\Theta z]_r.
+\]
+The same identity iterates with the sign $(-1)^m$ for $\Theta^m$.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:eisenstein-unit} identifies the second factor with
+$Q_{P+2-r}$, so perfectness follows from
+Proposition~\ref{prop:hasse-perfect-pairing}.  Since theta is a derivation
+in characteristic $p$,
+\[
+ \Theta(B^p)=pB^{p-1}\Theta(B)=0,
+ \qquad
+ \Theta(B^{-p})=0
+\]
+on $Z$.  Proposition~\ref{prop:theta-adjointness} therefore gives
+\[
+ \begin{aligned}
+ {}[\Theta x,z]_{r+p+1}
+ &=\langle\Theta x,B^{-p}z\rangle_{r+p+1}\\
+ &=-\langle x,\Theta(B^{-p}z)\rangle_r\\
+ &=-\langle x,B^{-p}\Theta z\rangle_r
+ =-[x,\Theta z]_r.
+ \end{aligned}
+\]
+Iteration proves the final assertion.
+\end{proof}
+
+\begin{lemma}[Why the undivided $p$-fold bridge fails]
+\label{lem:theta-p-zero-on-hasse-quotient}
+On every $Q_r$ one has $\Theta^p=0$.
+\end{lemma}
+
+\begin{proof}
+Fermat's congruence and the $q$-expansion principle give the standard
+identity
+\[
+ \Theta^p=A^{p+1}\Theta
+\]
+as operators on modular forms in characteristic $p$: the two sides have
+the same weight and the same $q$-expansion. In the target Hasse quotient,
+\[
+ A^{p+1}\Theta x=A^p(A\Theta x)=0.
+\]
+\end{proof}
+
+Now let
+\[
+ w_-=k+2i-P,
+ \qquad
+ w_+=k+2i^\dagger+P,
+ \qquad
+ i+i^\dagger=p^2+1-k.
+\]
+Then
+\[
+ w_-+w_+=2p^2+2=P+2+p(p+1),
+\]
+and therefore
+\[
+ [\ ,\ ]_{w_-}:Q_{w_-}\times Q_{w_+}\longrightarrow\mathbb F_p
+\]
+is a perfect pairing under which theta is skew-adjoint.  This is the
+pairing at the two candidate-weight indices.  The factor $B^p$
+is exactly the weight-$p(p+1)$ factor that occurs in the proved leading-block
+formula for the $D=2$ obstruction.  Serre duality alone would pair weights
+summing to $P+2$; the Eisenstein bridge supplies the required extra shift.
+The tempting replacement by $\Theta^p$ is zero by
+Lemma~\ref{lem:theta-p-zero-on-hasse-quotient}.
+
+There is an important indexing distinction.  The obstruction to lowering
+to a candidate weight $w$ naturally lies in $Q_{w+P}$, not $Q_w$; this is
+proved in Proposition~\ref{prop:geometric-bockstein}.  Thus the pairing
+above is a correct structural pairing, but it is not yet the pairing of the
+two actual Bockstein target spaces.  The latter is constructed, with the
+correct shift, in Theorem~\ref{thm:natural-bockstein-pairing}.  This
+distinction prevents the constant sum of the candidate weights from being
+mistaken for Bockstein compatibility.

@@ -1,0 +1,52 @@
+\subsection{An abstract Bockstein-adjointness criterion}
+
+The final compatibility can be reduced to a standard algebraic check.  We
+record the check separately so that the remaining modular input is visible.
+
+\begin{lemma}[Adjoint Bocksteins]
+\label{lem:adjoint-bocksteins}
+Let $R=\mathbb Z/p^2\mathbb Z$.  Let $C^\bullet$ and $D^\bullet$ be bounded
+complexes of finite free $R$-modules with a perfect pairing
+\[
+ C^a\times D^{N-a}\longrightarrow R
+\]
+for which the differentials are graded skew-adjoint.  Let
+\[
+ \begin{aligned}
+ \partial_C&:H^a(C^\bullet/p)
+       \longrightarrow H^{a+1}(C^\bullet/p),\\
+ \partial_D&:H^{N-a-1}(D^\bullet/p)
+       \longrightarrow H^{N-a}(D^\bullet/p).
+ \end{aligned}
+\]
+be the connecting maps from multiplication by $p$.  Then
+\[
+ \langle\partial_Cx,y\rangle
+   =(-1)^{a+1}\langle x,\partial_Dy\rangle.
+\]
+\end{lemma}
+
+\begin{proof}
+Choose cocycle lifts $\widetilde x$ and $\widetilde y$ over $R$.  Write
+$d\widetilde x=p x_1$ and $d\widetilde y=p y_1$.  Graded
+skew-adjointness gives
+\[
+ \langle d\widetilde x,\widetilde y\rangle
+   =(-1)^{a+1}\langle\widetilde x,d\widetilde y\rangle.
+\]
+Divide by $p$ and reduce modulo $p$.  The resulting classes of $x_1$ and
+$y_1$ are the two connecting maps, which proves the formula.
+\end{proof}
+
+To apply Lemma~\ref{lem:adjoint-bocksteins} here, one must construct a
+self-dual two-term complex whose connecting maps are exactly the geometric
+classes $\Gamma_{w_-}(\theta^if)$ and
+$\Gamma_{w_+}(\theta^{i^\dagger}f)$.  Proposition
+\ref{prop:geometric-bockstein} supplies the target spaces, and Theorem
+\ref{thm:natural-bockstein-pairing} supplies the duality.  The unresolved
+input is commutativity of the integral theta-iterate square with the two
+minimal-weight projections.  Lemma~\ref{lem:theta-hasse-inclusion} proves
+commutativity with the $E_{p-1}^p$ weight-raising maps.  What remains is
+the projection term introduced by integral theta modulo $p^2$, including
+its unit scalar.  Verifying that term would turn the abstract lemma into
+the desired cross-wedge theorem.

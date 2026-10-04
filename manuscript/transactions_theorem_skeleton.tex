@@ -1,0 +1,113 @@
+% Conjectural application.  The proved Hasse-jet results do not depend on it.
+
+\section{Tate-dual obstruction classes}
+
+Put $P=p(p-1)$ and let $i=np+i'$ be in the nondegenerate band. Define
+\[
+  i^\dagger=p^2+1-k-i
+   =(p-2-n)p+(2p+1-k-i').
+\]
+Then
+\[
+ i+i^\dagger=p^2+1-k,
+ \qquad
+ (k+2i)+(k+2i^\dagger)=2p^2+2.
+\]
+Moreover, if $c(x)=x^2+(k-1)x$, then
+$c(2p+1-k-i')\equiv c(i')\pmod p$, while
+\[
+ (p-2-n)(p-1-n)\equiv(n+1)(n+2)\pmod p.
+\]
+
+The lower Bockstein class $\beta_w(g)$ and its lift-independence are given
+by Lemma~\ref{lem:bockstein}. In particular,
+\[
+  \beta_w(g)=0
+  \quad\Longleftrightarrow\quad
+  \omega_{p^2}(g)\le w
+\]
+for an admissible candidate weight $w$.
+
+The perfect Hasse-quotient pairing and theta adjointness are proved in
+Propositions~\ref{prop:hasse-perfect-pairing} and
+\ref{prop:theta-adjointness}. Put
+\[
+ w_-=k+2i-P,\qquad w_+=k+2i^\dagger+P.
+\]
+Proposition~\ref{prop:geometric-bockstein} places the two actual
+weight-lowering obstructions in
+\[
+ Q_{r_-}\quad\hbox{and}\quad Q_{r_+},
+ \qquad
+ r_-=w_-+P=k+2i,
+ \quad
+ r_+=w_++P=k+2i^\dagger+2P.
+\]
+Their weights satisfy
+\[
+ r_-+r_+=P+2+p(3p-1).
+\]
+Theorem~\ref{thm:natural-bockstein-pairing} uses a horizontal unit of
+weight $p(3p-1)$ to give a perfect pairing
+\[
+ [\ ,\ ]^{\mathrm{nat}}:
+ Q_{r_-}\times Q_{r_+}\longrightarrow\mathbb F_p
+\]
+under which theta is skew-adjoint.
+
+\begin{conjecture}[Cross-wedge Bockstein compatibility]
+Assume that $f$ is ordinary at $p$, $4\le k<p-1$, and that both $i$ and
+$i^\dagger$ lie in the nondegenerate band. If
+\[
+ D(i)=0,\qquad D(i^\dagger)=2,
+\]
+then the two geometric Bockstein classes
+\[
+ \Gamma_{w_-}(\theta^if)\in Q_{r_-},
+ \qquad
+ \Gamma_{w_+}(\theta^{i^\dagger}f)\in Q_{r_+}
+\]
+represent one another under the natural perfect pairing, up to the explicit
+nonzero scalar in the $D=2$ block formula. Consequently
+\[
+ \beta_{k+2i-P}(\theta^i f)=0
+ \quad\Longleftrightarrow\quad
+ \beta_{k+2i^\dagger+P}(\theta^{i^\dagger}f)=0.
+\]
+\end{conjecture}
+
+\begin{conjecture}[Exact $D=0$ shifted-conic law]
+Under the hypotheses of the preceding conjecture,
+\[
+ \delta(\theta^i f)=-1
+ \quad\Longleftrightarrow\quad
+ i'^2+(k-1)i'-(n+1)(n+2)\equiv0\pmod p.
+\]
+Otherwise $\delta(\theta^i f)=0$.
+\end{conjecture}
+
+\begin{proof}[Deduction of the second conjecture from the first]
+For the dual index, the proved $D=2$ polynomial is
+\[
+ (i'^\dagger)^2+(k-1)i'^\dagger
+   -n^\dagger(n^\dagger+1).
+\]
+The two elementary congruences above transform this into
+\[
+ i'^2+(k-1)i'-(n+1)(n+2).
+\]
+The $D=2$ theorem says that the complementary obstruction vanishes exactly
+on this conic. Cross-wedge Tate duality transfers the vanishing to $i$.
+\end{proof}
+
+\begin{conjecture}[Corrected global duality]
+Let $e(i)=D(i)-\delta(\theta^i f)$. Away from the central $D=1$ plateau,
+\[
+ e(i)=e(i^\dagger).
+\]
+On that plateau the difference is a rank-one boundary functional supported
+on
+\[
+ i'^2+(k-1)i'-(n+1)^2\equiv0\pmod p.
+\]
+\end{conjecture}

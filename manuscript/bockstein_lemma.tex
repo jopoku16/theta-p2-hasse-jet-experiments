@@ -1,0 +1,80 @@
+\subsection{The weight-lowering Bockstein}
+
+Let $R=\mathbb Z_{(p)}$, and let $M_w(R)$ denote the space of level-one
+modular forms of weight $w$ with coefficients in $R$.  We identify a form
+with its $q$-expansion.  Write
+\[
+  \overline M_w:=M_w(R)/pM_w(R)
+\]
+and let $\overline{\mathcal D}$ be the space of divided congruences modulo
+$p$, viewed through their $q$-expansions.
+
+\begin{definition}\label{def:bockstein}
+Let $g\in\mathcal D(R/p^2R)$ and suppose that $g\pmod p$ is represented by
+some $h\in M_w(R)$.  Define
+\[
+  \beta_w(g):=\left[\frac{g-h}{p}\right]
+       \in \overline{\mathcal D}/\overline M_w.
+\]
+Here any lift of the $q$-expansion of $g$ to $R$ may be used in the
+numerator.
+\end{definition}
+
+\begin{lemma}\label{lem:bockstein}
+The class $\beta_w(g)$ is independent of the choices in Definition
+\ref{def:bockstein}.  Moreover,
+\[
+  \beta_w(g)=0
+  \quad\Longleftrightarrow\quad
+  g\equiv H\pmod{p^2}
+  \quad\text{for some }H\in M_w(R).
+\]
+Consequently, if $w$ lies in the admissible weight class of $g$, then
+\[
+  \beta_w(g)=0
+  \quad\Longleftrightarrow\quad
+  \omega_{p^2}(g)\le w.
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose first that $h,h'\in M_w(R)$ both represent $g\pmod p$.  Then
+$h-h'$ has $q$-expansion divisible by $p$.  The standard integral echelon
+basis of $M_w(R)$ has a distinct unit leading coefficient in each possible
+order of vanishing.  Forward substitution in this basis therefore shows
+that $h-h'\in pM_w(R)$.  Hence
+\[
+  \frac{g-h}{p}-\frac{g-h'}{p}=\frac{h'-h}{p}\in M_w(R),
+\]
+so the two choices define the same class modulo $\overline M_w$.  Changing
+the integral lift of $g$ changes the quotient by an arbitrary multiple of
+$p^2/p=p$, and hence does not change its reduction modulo $p$.  This proves
+well-definedness.
+
+If $\beta_w(g)=0$, there is an $m\in M_w(R)$ such that
+$(g-h)/p\equiv m\pmod p$.  Thus
+\[
+  g\equiv h+pm\pmod{p^2},
+\]
+and $h+pm$ belongs to $M_w(R)$.  Conversely, suppose that
+$g\equiv H\pmod{p^2}$ for some $H\in M_w(R)$.  Since
+$H\equiv h\pmod p$, the same echelon-basis argument gives
+$H-h=pm$ for some $m\in M_w(R)$.  It follows that
+\[
+  \frac{g-h}{p}\equiv\frac{H-h}{p}=m\pmod p,
+\]
+so $\beta_w(g)=0$ in
+$\overline{\mathcal D}/\overline M_w$.  The final equivalence is the
+definition of weight filtration once $w$ is in the required congruence
+class.
+\end{proof}
+
+\begin{remark}\label{rem:bockstein-computation}
+The canonical echelon remainder used in the computations is a coordinate
+representative of $\beta_w(g)$.  Reducing $g$ modulo the integral echelon
+basis of $M_w(R)$ kills the same leading coefficients as the lift $h$ in
+the proof.  The resulting remainder is divisible by $p$, and division by
+$p$ followed by reduction modulo $p$ gives the displayed class.  Thus the
+computational zero test is intrinsic even though its coordinate vector
+depends on the chosen echelon basis.
+\end{remark}

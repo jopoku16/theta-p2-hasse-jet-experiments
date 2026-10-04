@@ -1,0 +1,42 @@
+\begin{figure}[t]
+\centering
+\resizebox{0.98\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw=black!70, rounded corners=1pt, align=center,
+              minimum height=0.85cm, inner sep=5pt},
+  data/.style={box, fill=blue!10},
+  found/.style={box, fill=yellow!18},
+  proved/.style={box, fill=green!16},
+  open/.style={box, draw=red!70!black, dashed, fill=red!4},
+  flow/.style={-{Latex[length=2mm]}, thick, draw=black!65}
+]
+\node[data, minimum width=3.3cm] (record) at (0,0)
+  {$5{,}434$ ordinary cells\\exact Sturm-safe arithmetic};
+\node[data, minimum width=3.3cm, right=0.55cm of record] (wedge)
+  {$692$ cross-wedge cells\\canonical Bockstein classes};
+\node[found, minimum width=3.6cm, right=0.55cm of wedge] (pattern)
+  {$458$ generic matches\\$234$ cells on three lines};
+\draw[flow] (record) -- (wedge);
+\draw[flow] (wedge) -- (pattern);
+
+\node[proved, minimum width=4.35cm, below=0.75cm of wedge, xshift=-1.25cm]
+  (theory) {proved mechanism\\first Hasse jet, perfect pairing,\\boundary-direction separation};
+\node[open, minimum width=4.35cm, right=0.5cm of theory]
+  (conjecture) {precise remaining target\\factorial block reduction and\\two endpoint coefficients};
+\draw[flow] (pattern.south) -- ++(0,-0.28) -| (theory.north);
+\draw[flow] (pattern.south) -- ++(0,-0.28) -| (conjecture.north);
+\draw[flow] (theory) -- (conjecture);
+
+\node[found, minimum width=4.35cm, below=0.65cm of conjecture]
+  (tests) {$2{,}324$ third-line tests\\plus $210{,}176$ index audits\\no recorded failure};
+\draw[flow] (conjecture) -- (tests);
+\end{tikzpicture}
+}
+\caption{The experiment-to-theorem path.  Exact computation first isolated
+the generic quadratic and its three boundary lines.  The green box records
+the uniform results proved here.  The dashed box is the remaining symbolic
+identity; finite tests support it but do not prove it.}
+\label{fig:experimental-workflow}
+\end{figure}
+

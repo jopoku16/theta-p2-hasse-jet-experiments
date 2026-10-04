@@ -1,0 +1,26 @@
+# LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.synctex.gz
+*.toc
+
+# Python build files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments and credentials
+.env
+.venv/
+venv/
+*.key
+*.pem
+
+# Operating-system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,98 @@
+\section{Notation and proof roadmap}\label{sec:notation-roadmap}
+
+\subsection{Core notation}
+
+The symbols used repeatedly in the proof are collected here.  The band
+level $D(i)$ is included explicitly so that the later references to the
+$D=0$ and $D=2$ strata are self-contained.
+
+\begingroup
+\renewcommand{\arraystretch}{1.16}
+\noindent\begin{tabularx}{\linewidth}{@{}>{$}l<{$}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\text{Symbol} & \text{Meaning}\\
+\midrule
+p,\ k,\ f & $p\geq5$ is prime; $f$ is an ordinary level-one form of weight
+$4\leq k<p-1$.\\
+\theta,\ \omega_{p^a} & The operator $q\,d/dq$ and weight filtration modulo
+$p^a$, respectively.\\
+i=np+i' & Band index, with $n$ the segment number and $i'$ the position
+inside the segment.\\
+P & The full Hasse drop $p(p-1)$.\\
+D(i) & The least integer $D$ such that
+$k+2i+DP\geq\omega_p(\theta^{i-p}f)+p(p+1)$; this is the inherited band
+upper-bound level.\\
+w_- & The candidate lower weight $k+2i-P$ in the $D=0$ stratum.\\
+A,\ S,\ Z & $A=E_{p-1}$ is the chosen integral lift of the Hasse invariant,
+$S=\operatorname{div}(A\bmod p)$, and $Z=pS$ is its length-$p$ thickening.\\
+Q_r & The Hasse quotient
+$H^0(Z,\omega^r|_Z)\simeq
+M_r(\mathbb F_p)/A^pM_{r-P}(\mathbb F_p)$.\\
+\mathcal B_i,\ \mathcal L_i & The Bockstein class of $\theta^if$ at weight
+$w_-$ and its shifted leading-block candidate.  Their difference is the
+boundary residual.\\
+X & The divided Eisenstein series $E_2/12$ modulo $p$; powers of $X$ form
+the direct block basis used in the reduction.\\
+\alpha,\ \Phi_r,\ \eta_r & The first Hasse jet $(A-1)/p$, the periodicity
+quotient $(\theta^{r+p-1}f-\theta^rf)/p$, and the lift error
+$(G_r-\theta^rf)/p$, all reduced modulo $p$.\\
+Z_d & The block direction $X^d\theta^{p-k}f$ in the factorial reduction.\\
+i^\dagger & The complementary index $p^2+1-k-i$ used in the Tate-dual
+comparison.\\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+\paragraph{Terminology.}
+A \emph{first Hasse jet} is a class on the thickened Hasse divisor $Z$.
+A \emph{Bockstein class} is the intrinsic obstruction to an integral
+weight-lowering lift.  A \emph{minimal-weight projection} is a chosen
+characteristic-zero representative of the smallest candidate weight.  The
+\emph{block basis} is the direct basis built from powers of $X$ and theta
+iterates.  A \emph{boundary residual} is the difference between the
+Bockstein class and its shifted leading-block candidate on one of the three
+affine boundary lines.
+
+\subsection{Dependency roadmap}
+
+The proof has five logically separate layers.  The first three are uniform
+in the admissible parameters and do not use the conjectural scalar identity.
+
+\begingroup
+\renewcommand{\arraystretch}{1.16}
+\small
+\noindent\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Layer & Main result & Logical role\\
+\midrule
+Geometric & Perfect Hasse-quotient duality and theta skew-adjointness &
+Uses duality on $Z$; independent of all finite computations and block
+formulas.\\
+Integral & Bockstein realization, Hasse inclusion, and the explicit
+periodic first-Hasse-jet formula & Uses integral Eisenstein lifts and the
+first ordinary low-point congruence; supplies the minimal-weight projection.\\
+Filtration & Uniform separation of all three boundary directions and
+nonvanishing of the factorial scalar candidate & Uses exact mod-$p$
+filtration; independent of the factorial block reduction.\\
+Computational & Exact classification of $692$ cross-wedge cells and
+$2{,}324$ third-line stress tests & Proved only on the deposited finite
+range; discovers and falsifies formulas but is not extrapolated to all $p$.\\
+Conditional & Factorial block reduction and two triangular endpoint
+coefficients & Would identify the actual boundary residuals and imply the
+shifted-conic filtration law.\\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+Thus the dependency chain is
+\[
+\begin{aligned}
+ \boxed{\text{geometry}}+\boxed{\text{integral first Hasse jet}}
+ &\Longrightarrow \boxed{\text{explicit Bockstein class}},\\
+ \boxed{\text{explicit Bockstein class}}
+ &\xRightarrow[\text{open}]{\text{block reduction}}
+ \boxed{\text{shifted-conic law}}.
+\end{aligned}
+\]
+The boundary-separation theorem branches from the filtration layer before
+the open implication and therefore remains unconditional.

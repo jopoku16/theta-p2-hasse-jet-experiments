@@ -1,0 +1,76 @@
+\section{Computational reproducibility}
+\label{app:computational-reproducibility}
+
+\subsection{Scope and arithmetic}
+
+The computational record is included to falsify formulas, discover exact
+boundary patterns, and verify that the explicit constructions reproduce
+the canonical remainders.  It is not used to turn a finite calculation
+into an assertion for all primes.  Every modular reduction and linear
+system is evaluated over $\mathbb Z/p^2\mathbb Z$ or $\mathbb F_p$ using
+integer arithmetic.  No floating-point tolerance, random seed, or
+stochastic search enters the reported audits.
+
+The reference environment is Python 3.13.7 with NumPy 2.4.6 and SymPy
+1.14.0.  From the project directory it can be installed with
+\begin{verbatim}
+python -m pip install -r requirements.txt
+\end{verbatim}
+The deposited comma-separated files in \texttt{data/} contain the cell
+parameters and canonical obstruction coordinates.  The implementation in
+\texttt{code/branchfree.py} constructs level-one echelon bases and keeps
+enough Fourier coefficients to pass the Sturm bound at every tested weight.
+
+\subsection{Primary checks}
+
+The explicit lower-weight lift and periodic first-Hasse-jet formula are checked
+by
+\begin{verbatim}
+python verify_periodic_first_jet.py data/d0_obstruction_coordinates.csv
+\end{verbatim}
+The expected terminal summary is
+\begin{verbatim}
+rows=692 checked=692 bad_weight=0 bad_mod_p=0 bad_beta=0
+\end{verbatim}
+Here \texttt{bad\_weight} tests the exact weight of the constructed lift,
+\texttt{bad\_mod\_p} tests its congruence with $\theta^if$, and
+\texttt{bad\_beta} compares the resulting divided series with the canonical
+echelon Bockstein.
+
+The blind third-line extension is
+\begin{verbatim}
+python stress_test_l3_uniformity.py --max-p 61
+\end{verbatim}
+and ends with
+\begin{verbatim}
+checked=464 zero=0 failed_shape=0 wrong_scalar=0
+\end{verbatim}
+The independent weight-$24$ test is
+\begin{verbatim}
+python stress_test_l3_weight24.py --max-p 43
+\end{verbatim}
+and ends with
+\begin{verbatim}
+ordinary_forms=186 checked=1860 zero=0 failed_shape=0 wrong_scalar=0
+\end{verbatim}
+In both commands, \texttt{wrong\_scalar} compares the computed value with
+$-m(k-2m-2)!$.
+
+Finally,
+\begin{verbatim}
+python audit_index_formulas.py
+\end{verbatim}
+checks the exponent decompositions, lower-weight formulas, Hasse exponents,
+pairing sums, and filtration gaps over all admissible symbolic parameters
+for primes through $101$.  This audit is deliberately separate from the
+Fourier-coefficient calculation.
+
+\subsection{Interpretation}
+
+The reproducible checks establish that the programs implement the stated
+formulas on the deposited range and that the newly derived first-Hasse-jet lift
+agrees with an independent canonical reduction.  They do not prove
+Conjecture~\ref{conj:factorial-block-reduction} or the two triangular
+endpoint coefficients for arbitrary $p$.  Those statements remain clearly
+separated from the unconditional Hasse-jet and boundary-separation
+theorems.

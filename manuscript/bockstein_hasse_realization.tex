@@ -1,0 +1,210 @@
+\subsection{Geometric realization of the weight-lowering obstruction}
+
+Retain the notation of the Hasse-duality subsection.  In particular,
+$P=p(p-1)$, $S=\operatorname{div}(A)$, $Z=pS$, and
+$Q_r=H^0(Z,\omega^r\vert_Z)$.  Let $\widetilde A=E_{p-1}$ be the
+normalized integral lift of the Hasse invariant.  Its $q$-expansion is
+congruent to $1$ modulo $p$, and therefore
+\begin{equation}\label{eq:hasse-p-lift}
+ \widetilde A^p\equiv1\pmod {p^2}
+\end{equation}
+as a $q$-expansion.
+
+\begin{proposition}[The Bockstein class is a first Hasse jet]
+\label{prop:geometric-bockstein}
+Let $g$ be a divided congruence modulo $p^2$.  Suppose that
+\begin{enumerate}
+\item $g$ has a representative $G\in M_{w+P}(\mathbb Z_{(p)})$ modulo
+      $p^2$; and
+\item $g\bmod p$ has a representative $h\in M_w(\mathbb Z_{(p)})$.
+\end{enumerate}
+Then
+\[
+ \Gamma_w(g):=
+ \left.\left(\frac{G-\widetilde A^p h}{p}\bmod p\right)\right|_Z
+ \in Q_{w+P}
+\]
+is independent of all choices.  Moreover,
+\[
+ \Gamma_w(g)=0
+ \quad\Longleftrightarrow\quad
+ g\text{ has a representative in }M_w(\mathbb Z_{(p)})
+       \text{ modulo }p^2.
+\]
+Under the $q$-expansion identification, $\Gamma_w(g)$ is the geometric
+image of the divided-congruence class $\beta_w(g)$ from
+Lemma~\ref{lem:bockstein}.
+\end{proposition}
+
+\begin{proof}
+The numerator is divisible by $p$: both terms have weight $w+P$, and their
+$q$-expansions agree modulo $p$ because $\widetilde A^p\equiv1\pmod p$.
+Thus the displayed quotient reduces to a form of weight $w+P$ modulo $p$.
+
+Changing $G$ without changing its $q$-expansion modulo $p^2$ changes the
+quotient by zero modulo $p$, by the saturated $q$-expansion principle.
+If $h'$ is another choice, the integral echelon argument used in
+Lemma~\ref{lem:bockstein} gives $h'-h=pm$ for some $m\in M_w$.  The two
+quotients then differ modulo $p$ by
+\[
+ -A^p m\in A^pM_w.
+\]
+Its restriction to $Z$ is zero.  This proves independence.
+
+The restriction sequence for the Cartier divisor $Z$ is
+\[
+ 0\longrightarrow\omega^w
+ \xrightarrow{\ A^p\ }\omega^{w+P}
+ \longrightarrow\omega^{w+P}\vert_Z\longrightarrow0.
+\]
+Hence $\Gamma_w(g)=0$ exactly when
+\[
+ \frac{G-\widetilde A^p h}{p}\equiv A^pm\pmod p
+\]
+for some $m\in M_w$.  In that case
+\[
+ G\equiv\widetilde A^p(h+pm)\pmod {p^2}.
+\]
+By \eqref{eq:hasse-p-lift}, the $q$-expansion of the right side is that of
+$h+pm$ modulo $p^2$, so $h+pm$ is a weight-$w$ representative of $g$.
+The converse follows by reversing the argument.  Finally, before
+restriction to $Z$ the displayed quotient has the same $q$-expansion as
+$(g-h)/p$ modulo $p$; quotienting by $A^pM_w$ is precisely its realization
+in the first-Hasse-jet space.  This proves the last assertion.
+\end{proof}
+
+The index shift in Proposition~\ref{prop:geometric-bockstein} is essential:
+the obstruction to lowering to weight $w$ belongs to $Q_{w+P}$, not to
+$Q_w$.
+
+\begin{lemma}[Theta commutes with the integral Hasse inclusion]
+\label{lem:theta-hasse-inclusion}
+For every integral $q$-series $h$ and every $m\geq 0$,
+\[
+ \theta^m(\widetilde A^p h)
+ \equiv \widetilde A^p\theta^m(h)\pmod {p^2}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $\widetilde A=1+pa(q)$.  Then $\theta\widetilde A$ is divisible by
+$p$, and hence
+\[
+ \theta(\widetilde A^p)
+ =p\widetilde A^{p-1}\theta\widetilde A
+ \equiv0\pmod {p^2}.
+\]
+The product rule gives the assertion for $m=1$, and iteration proves it
+for every $m$.
+\end{proof}
+
+\begin{lemma}[A horizontal unit of the required weight]
+\label{lem:horizontal-unit}
+After pullback to a compactified modular curve with auxiliary full level
+$3$, there is a form
+\[
+ F\in H^0(X,\omega^{3p-1})
+\]
+whose restriction to $S$ is nowhere zero.  Consequently
+\[
+ U:=F^p\vert_Z\in H^0(Z,\omega^{p(3p-1)}\vert_Z)
+\]
+is a unit and $\Theta(U)=0$.
+\end{lemma}
+
+\begin{proof}
+Multiplication by $A$ gives
+\[
+ 0\longrightarrow\omega^{2p}
+ \xrightarrow{\ A\ }\omega^{3p-1}
+ \longrightarrow\omega^{3p-1}\vert_S\longrightarrow0.
+\]
+Serre duality and Kodaira--Spencer give
+\[
+ H^1(X,\omega^{2p})^\vee
+ \simeq H^0(X,\omega^{2-2p}(-C))=0.
+\]
+The restriction map onto $S$ is therefore surjective.  Since $S$ is a
+finite reduced scheme, the restricted line bundle has a global generator;
+lift such a generator to $F$.  It remains a unit on the nilpotent
+thickening $Z$.  Its $p$-th power is a unit of weight $p(3p-1)$, and the
+product rule in characteristic $p$ gives $\Theta(F^p)=0$.
+\end{proof}
+
+Now put
+\[
+ w_-=k+2i-P,
+ \qquad
+ w_+=k+2i^\dagger+P,
+\]
+and define the actual geometric Bockstein weights
+\[
+ r_-:=w_-+P=k+2i,
+ \qquad
+ r_+:=w_++P=k+2i^\dagger+2P.
+\]
+They satisfy
+\begin{equation}\label{eq:natural-bockstein-weight-sum}
+ r_-+r_+=P+2+p(3p-1).
+\end{equation}
+
+\begin{theorem}[Auxiliary-level natural Bockstein pairing]
+\label{thm:natural-bockstein-pairing}
+For a choice of $F$ as in Lemma~\ref{lem:horizontal-unit}, the formula
+\[
+ [x,z]^{\mathrm{nat}}:=\langle x,U^{-1}z\rangle_{r_-}
+\]
+defines a perfect pairing
+\[
+ Q_{r_-}\times Q_{r_+}\longrightarrow\mathbb F_p.
+\]
+Theta is skew-adjoint under this pairing.  The construction is not
+canonical in $F$, but every such choice is perfect and detects the zero
+class.  Pullback to auxiliary level is faithful, so vanishing of the
+level-one Bockstein is equivalent to vanishing of its pulled-back class.
+\end{theorem}
+
+\begin{proof}
+Equation~\eqref{eq:natural-bockstein-weight-sum} and the invertibility of
+$U$ identify the second factor with $Q_{P+2-r_-}$.  Perfectness follows
+from Proposition~\ref{prop:hasse-perfect-pairing}.  Since
+$\Theta(U)=\Theta(U^{-1})=0$, Proposition~\ref{prop:theta-adjointness}
+gives
+\[
+ [\Theta x,z]^{\mathrm{nat}}
+ =-[x,\Theta z]^{\mathrm{nat}}.
+\]
+Faithful pullback proves the final assertion.
+\end{proof}
+
+\begin{remark}
+The perfect pairing in Theorem~\ref{thm:natural-bockstein-pairing} depends
+on the choice of the auxiliary-level unit $F$.  The theorem uses it only to
+identify dual vector spaces and detect the zero class after faithful
+pullback.  It does not assert a canonical level-one bilinear form or descend
+the chosen unit through the tame deck group.  By contrast, the unshifted
+Hasse-quotient pairing in Proposition~\ref{prop:hasse-perfect-pairing} is
+canonical and does descend by invariants.
+\end{remark}
+
+For the complementary theta iterates, Proposition
+\ref{prop:geometric-bockstein} now gives the correctly typed classes
+\[
+ \Gamma_{w_-}(\theta^if)\in Q_{r_-},
+ \qquad
+ \Gamma_{w_+}(\theta^{i^\dagger}f)\in Q_{r_+}.
+\]
+The remaining cross-wedge problem is no longer the construction of their
+ambient pairing.  It is the following concrete compatibility statement:
+under the isomorphism $Q_{r_+}\simeq Q_{r_-}^\vee$ induced by
+$[\ ,\ ]^{\mathrm{nat}}$, the second displayed class must equal the
+functional obtained from the first by the integral theta-iterate
+construction, up to the explicit nonzero scalar in the $D=2$ block
+formula.  Perfectness and theta adjointness alone do not prove that
+identification.
+
+Lemma~\ref{lem:theta-hasse-inclusion} proves the Hasse-inclusion part of
+the required square.  Theorem~\ref{thm:explicit-periodic-first-jet} gives
+an explicit formula for the lower minimal-weight projection.  The
+unresolved part is its factorial block reduction and the corresponding
+compatibility with the complementary class.

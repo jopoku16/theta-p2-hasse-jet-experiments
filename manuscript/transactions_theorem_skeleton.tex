@@ -7,6 +7,15 @@ Put $P=p(p-1)$ and let $i=np+i'$ be in the nondegenerate band. Define
   i^\dagger=p^2+1-k-i
    =(p-2-n)p+(2p+1-k-i').
 \]
+
+On every admissible cell considered here, the mod-$p^2$ filtration has the
+same weight class as $k+2i$.  We therefore write
+\[
+ \omega_{p^2}(\theta^if)=k+2i+\delta(\theta^if)P.
+\]
+This equation defines the integer $\delta(\theta^if)$.  Thus
+$\delta=-1$ means that one additional full Hasse drop occurs below
+$k+2i$, while $\delta=0$ means that it does not.
 Then
 \[
  i+i^\dagger=p^2+1-k,
@@ -53,9 +62,12 @@ weight $p(3p-1)$ to give a perfect pairing
  [\ ,\ ]^{\mathrm{nat}}:
  Q_{r_-}\times Q_{r_+}\longrightarrow\mathbb F_p
 \]
-under which theta is skew-adjoint.
+as part of a correctly typed family under which theta is skew-adjoint.
+The pairing shows that the two obstruction spaces are dual.  It does not
+by itself identify the two particular obstruction classes.
 
 \begin{conjecture}[Cross-wedge Bockstein compatibility]
+\label{conj:cross-wedge-bockstein}
 Assume that $f$ is ordinary at $p$, $4\le k<p-1$, and that both $i$ and
 $i^\dagger$ lie in the nondegenerate band. If
 \[
@@ -67,8 +79,13 @@ then the two geometric Bockstein classes
  \qquad
  \Gamma_{w_+}(\theta^{i^\dagger}f)\in Q_{r_+}
 \]
-represent one another under the natural perfect pairing, up to the explicit
-nonzero scalar in the $D=2$ block formula. Consequently
+vanish together:
+\[
+ \Gamma_{w_-}(\theta^if)=0
+ \quad\Longleftrightarrow\quad
+ \Gamma_{w_+}(\theta^{i^\dagger}f)=0.
+\]
+Equivalently,
 \[
  \beta_{k+2i-P}(\theta^i f)=0
  \quad\Longleftrightarrow\quad
@@ -76,7 +93,14 @@ nonzero scalar in the $D=2$ block formula. Consequently
 \]
 \end{conjecture}
 
+The conjecture states only the intrinsic vanishing equivalence needed
+below.  A stronger equality through a chosen auxiliary-level pairing would
+require an explicit comparison map and a normalization of the horizontal
+unit.  Those data have not yet been constructed, so no such equality is
+claimed here.
+
 \begin{conjecture}[Exact $D=0$ shifted-conic law]
+\label{conj:exact-d0-shifted-conic}
 Under the hypotheses of the preceding conjecture,
 \[
  \delta(\theta^i f)=-1
@@ -86,7 +110,13 @@ Under the hypotheses of the preceding conjecture,
 Otherwise $\delta(\theta^i f)=0$.
 \end{conjecture}
 
-\begin{proof}[Deduction of the second conjecture from the first]
+\begin{proposition}[Conditional shifted-conic deduction]
+\label{prop:conditional-shifted-conic}
+Conjecture~\ref{conj:cross-wedge-bockstein} implies
+Conjecture~\ref{conj:exact-d0-shifted-conic}.
+\end{proposition}
+
+\begin{proof}
 For the dual index, the proved $D=2$ polynomial is
 \[
  (i'^\dagger)^2+(k-1)i'^\dagger
@@ -96,11 +126,14 @@ The two elementary congruences above transform this into
 \[
  i'^2+(k-1)i'-(n+1)(n+2).
 \]
-The $D=2$ theorem says that the complementary obstruction vanishes exactly
-on this conic. Cross-wedge Tate duality transfers the vanishing to $i$.
+The $D=2$ theorem of Ahlgren--Raum--Richter \cite{ARR2026} says that the
+complementary obstruction vanishes exactly on this conic.  The assumed
+cross-wedge compatibility transfers this vanishing to $i$.  This gives the
+claimed equivalence and proves the implication.
 \end{proof}
 
 \begin{conjecture}[Corrected global duality]
+\label{conj:corrected-global-duality}
 Let $e(i)=D(i)-\delta(\theta^i f)$. Away from the central $D=1$ plateau,
 \[
  e(i)=e(i^\dagger).

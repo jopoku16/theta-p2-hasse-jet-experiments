@@ -3,7 +3,9 @@ message: "Please cite the paper and the archived release of this repository."
 title: "Experiments with Theta Cycles Modulo p^2: Hasse-Jet Duality and a Shifted-Conic Conjecture"
 type: software
 authors:
+  - family-names: Ofori
+    given-names: Hurcheson Asante
   - family-names: Opoku
     given-names: Jeffery
-version: 1.0.0
+version: 1.1.0
 date-released: 2026-10-04

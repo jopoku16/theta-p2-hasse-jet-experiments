@@ -16,6 +16,8 @@ p,\ k,\ f & $p\geq5$ is prime; $f$ is an ordinary level-one form of weight
 $4\leq k<p-1$.\\
 \theta,\ \omega_{p^a} & The operator $q\,d/dq$ and weight filtration modulo
 $p^a$, respectively.\\
+\delta(\theta^if) & The integer defined on the admissible cells by
+$\omega_{p^2}(\theta^if)=k+2i+\delta(\theta^if)P$.\\
 i=np+i' & Band index, with $n$ the segment number and $i'$ the position
 inside the segment.\\
 P & The full Hasse drop $p(p-1)$.\\
@@ -23,11 +25,15 @@ D(i) & The least integer $D$ such that
 $k+2i+DP\geq\omega_p(\theta^{i-p}f)+p(p+1)$; this is the inherited band
 upper-bound level.\\
 w_- & The candidate lower weight $k+2i-P$ in the $D=0$ stratum.\\
-A,\ S,\ Z & $A=E_{p-1}$ is the chosen integral lift of the Hasse invariant,
-$S=\operatorname{div}(A\bmod p)$, and $Z=pS$ is its length-$p$ thickening.\\
+A,\ \widetilde A,\ S,\ Z & $A$ is the Hasse invariant over $\mathbb F_p$,
+$\widetilde A=E_{p-1}$ is its chosen integral lift,
+$S=\operatorname{div}(A)$, and $Z=pS$ is its length-$p$ thickening.  In a
+purely integral formula, $A$ may be used for $E_{p-1}$ after this is stated
+explicitly.\\
 Q_r & The Hasse quotient
-$H^0(Z,\omega^r|_Z)\simeq
-M_r(\mathbb F_p)/A^pM_{r-P}(\mathbb F_p)$.\\
+$H^0(Z,\omega^r|_Z)$.  Restriction gives an injection
+$M_r(\mathbb F_p)/A^pM_{r-P}(\mathbb F_p)\hookrightarrow Q_r$; it is an
+isomorphism when the restriction map is onto.\\
 \mathcal B_i,\ \mathcal L_i & The Bockstein class of $\theta^if$ at weight
 $w_-$ and its shifted leading-block candidate.  Their difference is the
 boundary residual.\\
@@ -52,6 +58,21 @@ characteristic-zero representative of the smallest candidate weight.  The
 iterates.  A \emph{boundary residual} is the difference between the
 Bockstein class and its shifted leading-block candidate on one of the three
 affine boundary lines.
+
+An \emph{admissible $D=0$--$D=2$ cross-wedge cell} means that the lower
+index has $D(i)=0$, its Tate complement has $D(i^\dagger)=2$, and there are
+integers $m,d$ such that
+\[
+ n=p-2-m,\qquad i'=p-k+m+1+d,
+\]
+with
+\[
+ 1\leq m\leq\left\lfloor\frac{k-4}{2}\right\rfloor,
+ \qquad 0\leq d\leq k-2m-1.
+\]
+These are the cross-wedge inequalities used below.  In particular, every
+factorial and every power in the uniform statements has a nonnegative
+exponent.
 
 \subsection{Dependency roadmap}
 

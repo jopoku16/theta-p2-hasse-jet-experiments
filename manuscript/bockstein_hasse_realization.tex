@@ -57,7 +57,9 @@ The restriction sequence for the Cartier divisor $Z$ is
  \xrightarrow{\ A^p\ }\omega^{w+P}
  \longrightarrow\omega^{w+P}\vert_Z\longrightarrow0.
 \]
-Hence $\Gamma_w(g)=0$ exactly when
+Exactness at $H^0(X,\omega^{w+P})$ says that the kernel of restriction is
+exactly $A^pM_w$; no surjectivity assertion is needed here.  Hence
+$\Gamma_w(g)=0$ exactly when
 \[
  \frac{G-\widetilde A^p h}{p}\equiv A^pm\pmod p
 \]
@@ -69,8 +71,13 @@ By \eqref{eq:hasse-p-lift}, the $q$-expansion of the right side is that of
 $h+pm$ modulo $p^2$, so $h+pm$ is a weight-$w$ representative of $g$.
 The converse follows by reversing the argument.  Finally, before
 restriction to $Z$ the displayed quotient has the same $q$-expansion as
-$(g-h)/p$ modulo $p$; quotienting by $A^pM_w$ is precisely its realization
-in the first-Hasse-jet space.  This proves the last assertion.
+$(g-h)/p$ modulo $p$.  The restriction map induces an injection
+\[
+ M_{w+P}(\mathbb F_p)/A^pM_w(\mathbb F_p)
+ \hookrightarrow Q_{w+P},
+\]
+and $\Gamma_w(g)$ is the image of the divided-congruence class under this
+map.  This proves the last assertion.
 \end{proof}
 
 The index shift in Proposition~\ref{prop:geometric-bockstein} is essential:
@@ -125,10 +132,12 @@ Serre duality and Kodaira--Spencer give
  \simeq H^0(X,\omega^{2-2p}(-C))=0.
 \]
 The restriction map onto $S$ is therefore surjective.  Since $S$ is a
-finite reduced scheme, the restricted line bundle has a global generator;
-lift such a generator to $F$.  It remains a unit on the nilpotent
-thickening $Z$.  Its $p$-th power is a unit of weight $p(3p-1)$, and the
-product rule in characteristic $p$ gives $\Theta(F^p)=0$.
+finite reduced scheme, its coordinate ring is a product of finite fields,
+and every line bundle on it has a global generator.  Lift such a generator
+to $F$.  At every point of $Z$, its reduction modulo the nilpotent ideal is
+a generator; Nakayama's lemma therefore shows that $F$ generates on $Z$.
+Its $p$-th power is a unit of weight $p(3p-1)$, and the product rule in
+characteristic $p$ gives $\Theta(F^p)=0$.
 \end{proof}
 
 Now put
@@ -150,41 +159,57 @@ They satisfy
 
 \begin{theorem}[Auxiliary-level natural Bockstein pairing]
 \label{thm:natural-bockstein-pairing}
-For a choice of $F$ as in Lemma~\ref{lem:horizontal-unit}, the formula
+Choose $F$ as in Lemma~\ref{lem:horizontal-unit} and put
+$W=p(3p-1)$.  For every integer $r$, the formula
 \[
- [x,z]^{\mathrm{nat}}:=\langle x,U^{-1}z\rangle_{r_-}
+ [x,z]^{\mathrm{nat}}_{r,F}:=\langle x,U^{-1}z\rangle_r
 \]
 defines a perfect pairing
 \[
- Q_{r_-}\times Q_{r_+}\longrightarrow\mathbb F_p.
+ Q_r\times Q_{P+2+W-r}\longrightarrow\mathbb F_p.
 \]
-Theta is skew-adjoint under this pairing.  The construction is not
-canonical in $F$, but every such choice is perfect and detects the zero
-class.  Pullback to auxiliary level is faithful, so vanishing of the
-level-one Bockstein is equivalent to vanishing of its pulled-back class.
+If $x\in Q_r$ and
+$z\in Q_{P+2+W-r-(p+1)}$, then the correctly typed adjointness identity is
+\[
+ [\Theta x,z]^{\mathrm{nat}}_{r+p+1,F}
+ =-[x,\Theta z]^{\mathrm{nat}}_{r,F}.
+\]
+Taking $r=r_-$ gives a perfect pairing
+$Q_{r_-}\times Q_{r_+}\to\mathbb F_p$.  The construction is not canonical
+in $F$, but every choice is perfect and detects the zero class.  Pullback
+to auxiliary level is faithful, so a level-one Bockstein vanishes if and
+only if its pulled-back class vanishes.
 \end{theorem}
 
 \begin{proof}
-Equation~\eqref{eq:natural-bockstein-weight-sum} and the invertibility of
-$U$ identify the second factor with $Q_{P+2-r_-}$.  Perfectness follows
-from Proposition~\ref{prop:hasse-perfect-pairing}.  Since
+The unit $U$ has weight $W$.  Its inverse identifies
+$Q_{P+2+W-r}$ with $Q_{P+2-r}$.  Perfectness therefore follows from
+Proposition~\ref{prop:hasse-perfect-pairing}.  Since
 $\Theta(U)=\Theta(U^{-1})=0$, Proposition~\ref{prop:theta-adjointness}
 gives
 \[
- [\Theta x,z]^{\mathrm{nat}}
- =-[x,\Theta z]^{\mathrm{nat}}.
+ \begin{aligned}
+ [\Theta x,z]^{\mathrm{nat}}_{r+p+1,F}
+ &=\langle\Theta x,U^{-1}z\rangle_{r+p+1}\\
+ &=-\langle x,\Theta(U^{-1}z)\rangle_r\\
+ &=-\langle x,U^{-1}\Theta z\rangle_r
+ =-[x,\Theta z]^{\mathrm{nat}}_{r,F}.
+ \end{aligned}
 \]
+Equation~\eqref{eq:natural-bockstein-weight-sum} gives
+$r_+=P+2+W-r_-$, so the specialization at $r_-$ has the stated factors.
 Faithful pullback proves the final assertion.
 \end{proof}
 
 \begin{remark}
-The perfect pairing in Theorem~\ref{thm:natural-bockstein-pairing} depends
-on the choice of the auxiliary-level unit $F$.  The theorem uses it only to
-identify dual vector spaces and detect the zero class after faithful
-pullback.  It does not assert a canonical level-one bilinear form or descend
-the chosen unit through the tame deck group.  By contrast, the unshifted
-Hasse-quotient pairing in Proposition~\ref{prop:hasse-perfect-pairing} is
-canonical and does descend by invariants.
+The family of perfect pairings in
+Theorem~\ref{thm:natural-bockstein-pairing} depends on the choice of the
+auxiliary-level unit $F$.  The theorem uses it only to identify dual vector
+spaces and detect the zero class after faithful pullback.  It does not
+assert a canonical level-one bilinear form or descend the chosen unit
+through the tame deck group.  By contrast, the unshifted Hasse-quotient
+pairing in Proposition~\ref{prop:hasse-perfect-pairing} is canonical and
+does descend by invariants.
 \end{remark}
 
 For the complementary theta iterates, Proposition

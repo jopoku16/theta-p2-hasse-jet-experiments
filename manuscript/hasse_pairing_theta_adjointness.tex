@@ -11,6 +11,8 @@ Cartier divisor cut out by $A^p$. For every integer $r$ define
               \simeq \omega^r\vert_Z,
  \qquad Q_r:=H^0(Z,\mathcal Q_r).
 \]
+All schemes, line bundles, and sections in this subsection are over
+$\mathbb F_p$ unless another base is written explicitly.
 The constructions below commute with the tame deck group. Its order is
 prime to $p$, so the Reynolds operator is exact.  The canonical pairing
 below is deck-invariant, and its restriction to invariant subspaces is
@@ -50,9 +52,13 @@ $\operatorname{Tr}_Z:H^0(Z,\omega_Z)\to\mathbb F_p$ gives the displayed
 pairing. Duality for the finite Gorenstein scheme $Z$ identifies
 $\mathcal Q_{P+2-r}$ with
 $\mathcal Hom_Z(\mathcal Q_r,\omega_Z)$, so the pairing is perfect.
+For the level-one statement, average a dual vector over the tame deck
+group.  Since the group order is a unit in $\mathbb F_p$, this averaging
+shows that the restriction to invariant subspaces is still perfect.
 \end{proof}
 
-Let $\Theta$ denote the Katz theta operator in characteristic $p$,
+Let $\Theta$ denote the Katz theta operator in characteristic $p$
+\cite{Katz1977},
 normalized by its $q$-expansion
 \[
  \Theta\!\left(\sum a_nq^n\right)=\sum n a_nq^n.
@@ -91,14 +97,16 @@ Notice that $xy$ has weight
 Let $a$ be the canonical section on the Igusa curve, normalized by
 $a^{p-1}=A$. The differential attached to $\Theta(xy)$ is
 $\Theta(xy)/a^P=\Theta(xy)/A^p$ under Kodaira--Spencer, and it is exact;
-this is the geometric description of theta in Gross, Proposition~5.8
+this is the geometric description of theta
+\cite[Proposition~5.8]{Gross1990}
 (equivalently, it follows locally by differentiating the function attached
 to $xy$). The residues of this differential at the supersingular points
-are exactly the local components of the trace in
-Proposition~\ref{prop:hasse-perfect-pairing}. An exact differential has zero
-residue, so
-$\operatorname{Tr}_Z(\Theta(xy))=0$. This proves the first identity.
-Iteration proves the second.
+are exactly the local components of the Grothendieck trace in
+Proposition~\ref{prop:hasse-perfect-pairing}; this is the residue form of
+duality for the Cartier divisor cut out by $A^p$.  An exact differential
+has zero residue, so $\operatorname{Tr}_Z(\Theta(xy))=0$.  The product rule
+now gives the first identity.  Induction on $m$ gives the second identity,
+with the weight of $y$ decreasing by $p+1$ at each step.
 
 For completeness, the nonreduced trace can be seen locally.  At a point
 $s\in S$, choose a parameter $t$ for which $A$ is a unit times $t$.
@@ -107,9 +115,10 @@ coefficient of $t^{p-1}$, followed by
 $\operatorname{Tr}_{k(s)/\mathbb F_p}$, up to a common unit fixed by the
 chosen trivialization.  The coefficient of $t^{p-1}$ in the derivative of
 a polynomial modulo $t^p$ is zero: it could only come from the derivative
-of $t^p$, whose coefficient is $p=0$.  Thus the local trace of the exact
-differential vanishes on the full thickening $pS$, not merely on its
-reduced support.
+of $t^p$, whose coefficient is $p=0$.  This also shows that the calculation
+is independent of the chosen representative modulo $t^p$.  Thus the local
+trace of the exact differential vanishes on the full thickening $pS$, not
+merely on its reduced support.
 \end{proof}
 
 The weight relation relevant to the Tate complement contains a further
@@ -131,7 +140,8 @@ for every $r$.
 \begin{proof}
 The Hasse invariant has a simple zero at every point of $S$.  Let
 $\partial_k=\Theta-kE_2/12$ be the Serre derivative in weight $k$.  The
-Ramanujan--Serre identity and the $q$-expansion principle give
+$q$-expansion of $A$ is $1$, so $\Theta(A)=0$ in characteristic $p$.
+Also $E_2\equiv E_{p+1}=B\pmod p$.  Hence the $q$-expansion principle gives
 \[
  12\partial_{p-1}A=B
  \qquad\text{in characteristic }p.

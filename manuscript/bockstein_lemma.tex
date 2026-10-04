@@ -39,10 +39,11 @@ Consequently, if $w$ lies in the admissible weight class of $g$, then
 
 \begin{proof}
 Suppose first that $h,h'\in M_w(R)$ both represent $g\pmod p$.  Then
-$h-h'$ has $q$-expansion divisible by $p$.  The standard integral echelon
-basis of $M_w(R)$ has a distinct unit leading coefficient in each possible
-order of vanishing.  Forward substitution in this basis therefore shows
-that $h-h'\in pM_w(R)$.  Hence
+$h-h'$ has $q$-expansion divisible by $p$.  The $q$-expansion lattice
+$M_w(R)$ is saturated: an integral modular form whose coefficients are all
+divisible by $p$ belongs to $pM_w(R)$.  One can also see this directly by
+forward substitution in the standard integral echelon basis, whose pivot
+coefficients are units.  Thus $h-h'\in pM_w(R)$.  Hence
 \[
   \frac{g-h}{p}-\frac{g-h'}{p}=\frac{h'-h}{p}\in M_w(R),
 \]
@@ -64,9 +65,13 @@ $H-h=pm$ for some $m\in M_w(R)$.  It follows that
   \frac{g-h}{p}\equiv\frac{H-h}{p}=m\pmod p,
 \]
 so $\beta_w(g)=0$ in
-$\overline{\mathcal D}/\overline M_w$.  The final equivalence is the
-definition of weight filtration once $w$ is in the required congruence
-class.
+$\overline{\mathcal D}/\overline M_w$.  For the final equivalence, assume
+that every smaller admissible representative weight differs from $w$ by a
+nonnegative multiple of $P=p(p-1)$.  Multiplication by the corresponding
+power of $E_{p-1}^p\equiv1\pmod {p^2}$ raises such a representative to
+weight $w$ without changing its reduction modulo $p^2$.  Therefore a
+representative of weight at most $w$ exists exactly when one of weight $w$
+exists.  This is the asserted filtration criterion.
 \end{proof}
 
 \begin{remark}\label{rem:bockstein-computation}

@@ -17,6 +17,11 @@ For a $D=0$ cell let
  \qquad
  \mathcal B_i=\Gamma_{w_-}(\theta^if)\in Q_{k+2i}.
 \]
+On the $D=0$ stratum used here, the integral theta expansion of
+\cite{ARR2026,ChenKiming2016} gives a representative of $\theta^if$ in
+$M_{k+2i}(\mathbb Z_{(p)})$ modulo $p^2$.  Thus
+Proposition~\ref{prop:geometric-bockstein} applies and the displayed class
+is well defined.
 The shifted leading-block candidate is the image in the same quotient of
 \begin{equation}\label{eq:shifted-leading-block}
  \mathcal L_i=q_1(n,i')X^p\theta^{i-p}f.
@@ -146,7 +151,7 @@ Let $F_j(f)$ be the modified Serre derivatives, defined by
  -\frac{j(j+k-1)}{144}E_4F_{j-1}(f),
 \]
 where $\partial_v g=\theta g-(v/12)E_2g$.  At the first ordinary low
-point, the Chida--Kaneko congruence gives
+point, the Chida--Kaneko congruence \cite{ChidaKaneko2007} gives
 \[
  F_{\ell_0}(f)\in M_{k+2\ell_0}(\mathbb Z_{(p)}),
  \qquad
@@ -275,7 +280,8 @@ the shifted coefficient $q_1(n,i')$ is
 \end{lemma}
 
 \begin{proof}
-Lucas's theorem gives
+The quotient defining $\kappa_A$ is an integer because the product
+contains a factor divisible by $p$.  Lucas's theorem gives
 $\binom{i}{i-p}=\binom{i}{p}\equiv n\pmod p$.  On the first triangular
 line one has $i'=p-k+m+1$, and on the second one has
 $i'=p-k+m+2$.  In either case the product defining $\kappa_A$ consists
@@ -330,7 +336,10 @@ cycle.  For $0\leq t<p$, its filtration is
   k+t(p+1)-(p-k+1)(p-1),&t\geq\ell_0.
  \end{cases}
 \]
-Also
+By Lemma~\ref{lem:eisenstein-unit}, the reduction of $E_{p+1}$ is a unit
+along the Hasse divisor.  Since $X=E_2/12\equiv E_{p+1}/12\pmod p$ and
+$12$ is a unit, multiplication by $X$ does not change the order of Hasse
+divisibility.  Therefore
 \[
  \omega_p(X^a\theta^t f)=\omega_p(\theta^t f)+a(p+1).
 \]
@@ -465,17 +474,19 @@ $q_1$ gives $q_1=-km$.  Both $k$ and $m$ lie strictly between $0$ and
 $p$, so this scalar is nonzero.
 \end{proof}
 
-The scalar in \eqref{eq:l3-residual}, when that identity holds, is
-therefore uniquely determined.  In canonical quotient coordinates it is
+If the residual belongs to the line spanned by $Y_{p,k,m}$, its scalar in
+\eqref{eq:l3-residual} is uniquely determined.  Under this one-line
+hypothesis it can be read in canonical quotient coordinates as
 \begin{equation}\label{eq:l3-scalar-definition}
  c_{p,k,m}(f)=
  \frac{\lambda(\mathcal B_i-\mathcal L_i)}
       {\lambda(Y_{p,k,m})},
 \end{equation}
 where $\lambda$ is any linear functional nonzero on the one-dimensional
-line spanned by $Y_{p,k,m}$.  The value is independent of the choice of
-$\lambda$.  Exact reconstruction of the computed values identifies the
-following closed candidate:
+line spanned by $Y_{p,k,m}$.  Because the residual is then a scalar multiple
+of $Y_{p,k,m}$, the ratio is independent of $\lambda$.  Exact
+reconstruction of the computed values identifies the following closed
+candidate:
 \begin{equation}\label{eq:l3-closed-scalar}
  c^*_{p,k,m}=-m\,(k-2m-2)!\pmod p.
 \end{equation}
@@ -551,4 +562,3 @@ endpoint coefficients.  The audit identifies those associated-graded
 coefficients as the unit $-(m+1)$.  Proposition
 \ref{prop:triangular-endpoint-independent} already supplies endpoint
 independence; it must not be counted among the remaining conjectural inputs.
-

@@ -15,6 +15,12 @@ Install the pinned dependencies with:
 
 Run all commands from the root of the extracted archive.
 
+Run the four main checks together with:
+
+    python run_core_audit.py
+
+The audit stops if a command fails or an expected exact summary is missing.
+
 ## Primary checks
 
 Explicit first-Hasse-jet lift:
@@ -58,5 +64,5 @@ manuscript labels those statements as conjectural.
 
 ## Contents
 
-The archive contains only code, data, dependencies, and instructions needed
+The folder contains only code, data, dependencies, and instructions needed
 to check the reported calculations.

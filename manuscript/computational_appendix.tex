@@ -3,13 +3,13 @@
 
 \subsection{Scope and arithmetic}
 
-The computational record is included to falsify formulas, discover exact
-boundary patterns, and verify that the explicit constructions reproduce
-the canonical remainders.  It is not used to turn a finite calculation
-into an assertion for all primes.  Every modular reduction and linear
-system is evaluated over $\mathbb Z/p^2\mathbb Z$ or $\mathbb F_p$ using
-integer arithmetic.  No floating-point tolerance, random seed, or
-stochastic search enters the reported audits.
+The code has three jobs.  It rejects false formulas, finds exact boundary
+patterns, and checks that the explicit constructions give the canonical
+remainders.  A finite check is never used as a proof for all primes.  Every
+modular reduction and linear system is evaluated over
+$\mathbb Z/p^2\mathbb Z$ or $\mathbb F_p$ with integer arithmetic.  The
+reported audits use no floating-point tolerance, random seed, or random
+search.
 
 The reference environment is Python 3.13.7 with NumPy 2.4.6 and SymPy
 1.14.0.  From the project directory it can be installed with
@@ -23,8 +23,16 @@ enough Fourier coefficients to pass the Sturm bound at every tested weight.
 
 \subsection{Primary checks}
 
-The explicit lower-weight lift and periodic first-Hasse-jet formula are checked
-by
+All four main audits can be run with
+\begin{verbatim}
+python run_core_audit.py
+\end{verbatim}
+The script stops with a nonzero exit code if a command fails or if an
+expected exact summary is missing.  The individual commands are given
+below.
+
+The explicit lower-weight lift and periodic first-Hasse-jet formula are
+checked by
 \begin{verbatim}
 python verify_periodic_first_jet.py data/d0_obstruction_coordinates.csv
 \end{verbatim}
@@ -67,9 +75,9 @@ Fourier-coefficient calculation.
 
 \subsection{Interpretation}
 
-The reproducible checks establish that the programs implement the stated
-formulas on the deposited range and that the newly derived first-Hasse-jet lift
-agrees with an independent canonical reduction.  They do not prove
+The checks show that the programs implement the stated formulas on the
+deposited range.  They also show that the first-Hasse-jet lift agrees with
+an independent canonical reduction.  They do not prove
 Conjecture~\ref{conj:factorial-block-reduction} or the two triangular
 endpoint coefficients for arbitrary $p$.  Those statements remain clearly
 separated from the unconditional Hasse-jet and boundary-separation

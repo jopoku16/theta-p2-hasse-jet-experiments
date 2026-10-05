@@ -15,7 +15,7 @@ Install the pinned dependencies with:
 
 Run all commands from the root of the extracted archive.
 
-Run the four main checks together with:
+Run the seven main checks together with:
 
     python run_core_audit.py
 
@@ -33,11 +33,11 @@ Expected final line:
 
 Blind third-line extension:
 
-    python stress_test_l3_uniformity.py --max-p 61
+    python stress_test_l3_uniformity.py --max-p 79
 
 Expected final line:
 
-    checked=464 zero=0 failed_shape=0 wrong_scalar=0
+    checked=652 zero=0 failed_shape=0 wrong_scalar=0
 
 Independent weight-24 forms:
 
@@ -55,12 +55,37 @@ Expected final line:
 
     audited_cells=210176 failures=0 max_prime=101
 
+Affine reduction and recurrence audit:
+
+    python audit_factorial_affine_reduction.py
+
+Expected final line:
+
+    affine_checked=614 recurrence_checked=156 failures=0
+
+Triangular endpoint source decomposition:
+
+    python audit_triangular_endpoint_source.py data/d0_obstruction_coordinates.csv --examples 0
+
+The output reports 78 matches on each line for the unit block, zero
+finite-block endpoint, and first-Hasse-jet correction.  Every failure
+category must be absent.
+
+Low-point jet identities and cutoff reductions:
+
+    python audit_low_point_jets.py
+
+Expected final line:
+
+    families=15 triangular_identities=273 modularized_jets=273 first_cutoffs=78 second_cutoffs=78 failures=0
+
 ## Interpretation
 
 These commands reproduce the exact finite calculations reported in the
-manuscript. They do not prove the factorial block reduction or the two
-triangular endpoint coefficient identities for arbitrary primes. The
-manuscript labels those statements as conjectural.
+manuscript. They also audit the new symbolic low-point formulas. They do not
+prove the factorial block reduction or the two triangular core-series
+containments for arbitrary primes. The manuscript labels those statements
+as conjectural.
 
 ## Contents
 

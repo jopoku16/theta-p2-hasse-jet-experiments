@@ -1,4 +1,4 @@
-\section{A direct factor-filtration route to the open theorem}
+\section{Direct calculation in the lower subwedge}
 
 The geometric pairing isolates the correct obstruction spaces, but the
 auxiliary horizontal unit in the natural pairing is noncanonical.  For the
@@ -116,7 +116,8 @@ nonvanishing assertions \eqref{eq:l1-endpoint} and
 
 \begin{theorem}[Explicit periodic first-Hasse-jet formula]
 \label{thm:explicit-periodic-first-jet}
-Assume that $f\in M_k(\mathbb Z_{(p)})$ is ordinary, that
+Assume that $f\in M_k(\mathbb Z_{(p)})$ is nonzero modulo $p$, is ordinary,
+has $\omega_p(f)=k$, and that
 $4\leq k<p-1$, and that $(n,i')$ is an admissible $D=0$--$D=2$
 cross-wedge cell.  Write
 \[
@@ -151,7 +152,8 @@ Let $F_j(f)$ be the modified Serre derivatives, defined by
  -\frac{j(j+k-1)}{144}E_4F_{j-1}(f),
 \]
 where $\partial_v g=\theta g-(v/12)E_2g$.  At the first ordinary low
-point, the Chida--Kaneko congruence \cite{ChidaKaneko2007} gives
+point, the Chida--Kaneko congruence
+\cite[Lemma~2.4 and Proposition~2.5]{ChidaKaneko2007} gives
 \[
  F_{\ell_0}(f)\in M_{k+2\ell_0}(\mathbb Z_{(p)}),
  \qquad
@@ -223,8 +225,11 @@ $i=r+L(p-1)$,
 \[
  j^i=j^r(1+pLq_p(j))\pmod {p^2}.
 \]
-If $p\mid j$, then $r\geq p-k\geq2$, and both sides of the corresponding
-divided congruence vanish modulo $p$.  Coefficientwise, therefore,
+If $p\mid j$, then $r\geq p-k\geq2$ and $i\geq r$.  Hence both $j^r$ and
+$j^i$ are divisible by $p^2$, so
+$(j^i-j^r)/p\equiv0\pmod p$.  The same argument applies to
+$(j^{r+p-1}-j^r)/p$.  Thus both sides of the corresponding divided
+coefficient identity vanish modulo $p$.  Coefficientwise, therefore,
 \begin{equation}\label{eq:fermat-period-jet}
  \frac{\theta^if-\theta^rf}{p}
  \equiv L\Phi_r(f)\pmod p.
@@ -258,6 +263,356 @@ $(F_{\ell_0}(f)-\theta^{\ell_0}f)/p$ on the second.  Equations
 \eqref{eq:periodic-first-jet-identity} and \eqref{eq:eta-recursion}
 therefore reduce the remaining block identities to a finite symbolic
 calculation in three explicit divided $q$-series.
+
+The jets at the two sides of the first low point can be controlled
+uniformly.  This removes the jet comparison from the list of open claims.
+
+\begin{proposition}[The two low-point jets lie below the endpoint cutoffs]
+\label{prop:low-point-jets-low}
+Put $s=p-k$, $h=s+1$, $U_t=\theta^tf$, and
+$\Xi=C/12$.  Also put
+\[
+ S_s=\alpha U_s+X^pU_{s-1},
+ \qquad Y=\Xi+X^p.
+\]
+Then the following statements hold.
+\begin{enumerate}
+\item The pre-low-point jet satisfies
+\begin{equation}
+\label{eq:pre-low-jet-modular}
+ \eta_s+kS_s\in M_{k+s(p+1)}(\mathbb F_p).
+\end{equation}
+On the first triangular line this space is contained in
+$M_{w_-}(\mathbb F_p)$.
+\item The reset jet has the explicit formula
+\begin{equation}
+\label{eq:reset-jet-closed-form}
+ \eta_h=-h!\sum_{j=0}^{h-1}
+ \frac{X^{h-j}U_j}{j!(h-j)}
+ \quad\text{in }\mathbb F_p[[q]].
+\end{equation}
+It belongs to $M_{k+h(p+1)}(\mathbb F_p)$.  On the second triangular
+line this space is contained in $M_{w_-}(\mathbb F_p)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For $r\geq0$, write
+$(x)^{\overline r}=x(x+1)\cdots(x+r-1)$, with value $1$ when $r=0$.
+The recurrence defining the modified Serre derivatives, together with
+$\theta X=X^2-E_4/144$, gives the triangular identities
+\begin{align}
+ U_t&=\sum_{j=0}^t\binom tj
+       (k+j)^{\overline{t-j}}X^{t-j}F_j,\label{eq:modified-serre-forward}\\
+ F_t&=\sum_{j=0}^t(-1)^{t-j}\binom tj
+       (k+j)^{\overline{t-j}}X^{t-j}U_j.\label{eq:modified-serre-inverse}
+\end{align}
+The first formula follows by induction on $t$: the $E_4$ term produced by
+differentiating $X^{t-j}$ cancels the $E_4$ term in the recurrence for
+$F_{j+1}$.  The remaining $X$ and $F_{j+1}$ coefficients combine by
+Pascal's identity to give the coefficient at level $t+1$.  The second
+formula is the inverse triangular relation.  After substituting the first
+formula, use
+\[
+ \binom tj\binom ja=\binom ta\binom{t-a}{j-a},
+ \qquad
+ (k+a)^{\overline{j-a}}(k+j)^{\overline{t-j}}
+ =(k+a)^{\overline{t-a}}.
+\]
+The coefficient of $U_a$ is then a fixed factor times
+$\sum_{j=a}^t(-1)^{t-j}\binom{t-a}{j-a}$.  This is zero when $a<t$ and
+one when $a=t$.
+
+Define
+\[
+ K_t=\sum_{j=0}^t\binom tj(k+j)^{\overline{t-j}}
+ A^j(B/12)^{t-j}F_j.
+\]
+Every summand has weight $k+t(p+1)$, and
+$K_t\equiv U_t\pmod p$.  Since
+\[
+ A=1+p\alpha,
+ \qquad \frac B{12}=X+p(\alpha X+\Xi)\pmod {p^2},
+\]
+coefficientwise expansion gives
+\begin{equation}
+\label{eq:Kt-first-jet}
+ \frac{K_t-U_t}{p}
+ =t\alpha U_t+t(k+t-1)\Xi U_{t-1}\pmod p.
+\end{equation}
+Here the coefficient of $\Xi$ follows from
+\[
+ \sum_{j=0}^{t-1}\binom tj(k+j)^{\overline{t-j}}
+ (t-j)X^{t-j-1}F_j=t(k+t-1)U_{t-1}.
+\]
+
+Before the first low point, $G_s$ and $K_s$ are modular forms of the same
+weight $k+s(p+1)$, and both reduce to $U_s$.  Hence
+$G_s-K_s$ has every Fourier coefficient divisible by $p$.  The
+$q$-expansion lattice of level-one modular forms over $\mathbb Z_{(p)}$ is
+saturated, so $(G_s-K_s)/p$ reduces to a form in
+$M_{k+s(p+1)}(\mathbb F_p)$.  Since $s=-k$ and
+$k+s-1=-1$ in $\mathbb F_p$, equation \eqref{eq:Kt-first-jet} gives
+\[
+ \frac{K_s-U_s}{p}=-k\alpha U_s+k\Xi U_{s-1}.
+\]
+Therefore
+\[
+ \eta_s+kS_s
+ =\frac{G_s-K_s}{p}+kYU_{s-1}\pmod p.
+\]
+Lemma~\ref{lem:xi-plus-xp-modular} shows that $Y$ has weight $p+1$.
+Also $U_{s-1}$ is still before the first low point.  Both terms on the
+right therefore have weight at most $k+s(p+1)$, proving
+\eqref{eq:pre-low-jet-modular}.  On the first triangular line,
+\[
+ w_--\bigl(k+s(p+1)\bigr)=(k-2m-2)(p-1)>0.
+\]
+
+At the low point, $G_h=F_h$.  In
+\eqref{eq:modified-serre-inverse}, every coefficient with $j<h$ contains
+the single factor $p$, because
+\[
+ (k+j)^{\overline{h-j}}=(k+j)(k+j+1)\cdots p.
+\]
+Wilson's theorem gives
+\[
+ (-1)^{h-j}\binom hj
+ \frac{(k+j)^{\overline{h-j}}}{p}
+ =-\frac{h!}{j!(h-j)}\pmod p.
+\]
+After subtracting $U_h$ and dividing by $p$, this is
+\eqref{eq:reset-jet-closed-form}.  Every summand there has filtration at
+most $k+h(p+1)$.  Finally, on the second triangular line,
+\[
+ w_--\bigl(k+h(p+1)\bigr)=(k-2m-3)(p-1)>0.
+\]
+This proves both cutoff statements.
+\end{proof}
+
+The next reduction makes that calculation more precise.  It is an exact
+identity of divided $q$-series.  It does not use the conjectural block
+formula.
+
+\begin{proposition}[Affine reduction of the factorial target]
+\label{prop:factorial-affine-reduction}
+Keep the notation of Theorem~\ref{thm:explicit-periodic-first-jet}, assume
+$d\geq1$, and put
+\[
+ s=p-k,\qquad U_t=\theta^t f,\qquad Z_d=X^dU_s.
+\]
+Define
+\begin{align*}
+ \mathcal C_d={}&-\Phi_{s+d}-\eta_{s+d}
+ +(d+1)\alpha U_{s+d}
+ -d(d+1-k)X^pU_{s+d-1},\\
+ \mathcal M_d={}&-\Phi_{s+d}+2\alpha U_{s+d}
+ -(2d-k)X^pU_{s+d-1}+(d-1)!Z_d.
+\end{align*}
+Then
+\begin{equation}
+\label{eq:factorial-affine-reduction}
+ \mathcal B_i-\mathcal L_i+m(d-1)![Z_d]
+ =\bigl[\mathcal C_d+m\mathcal M_d\bigr]_{Q_{k+2i}}.
+\end{equation}
+In particular, the unresolved expression is affine in $m$ before passage
+to the quotient.  The quotient weight still depends on $m$, so this
+statement does not split the conjecture into two separate vanishing
+claims.
+\end{proposition}
+
+\begin{proof}
+In $\mathbb F_p$ the parameters satisfy
+\[
+ L=p-1-m=-(m+1),\qquad
+ a=p-2m-d-1=-(2m+d+1).
+\]
+Direct substitution in the definition of $q_1$ gives
+\[
+ q_1(n,i')=m(2d-k)+d(d+1-k).
+\]
+Also
+\[
+ i-p=(s+d-1)+(L-1)(p-1).
+\]
+Coefficientwise Fermat periodicity therefore gives
+$\theta^{i-p}f=U_{s+d-1}$ in $\mathbb F_p[[q]]$.  Substituting these four
+identities into \eqref{eq:periodic-first-jet-identity}, subtracting
+$\mathcal L_i$, and adding $m(d-1)![Z_d]$ gives exactly
+\eqref{eq:factorial-affine-reduction}.
+\end{proof}
+
+\begin{lemma}[The first Hasse derivative]
+\label{lem:first-hasse-derivative}
+In $\mathbb F_p[[q]]$ one has
+\begin{equation}
+\label{eq:first-hasse-derivative}
+ \theta\alpha=X-X^p.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The Eisenstein congruence of \cite[Theorem~1.2]{AHRR2026}, in the
+normalization used here, is
+\[
+ E_2\equiv 12\partial A\,A^{2p-1}+pB^pA^{p-2}\pmod {p^2},
+ \qquad
+ \partial A=\theta A-\frac{p-1}{12}E_2A.
+\]
+Write $A=1+p\alpha$ modulo $p^2$.  Then
+\[
+ 12\partial A
+ =E_2+p\bigl(12\theta\alpha+(\alpha-1)E_2\bigr),
+ \qquad
+ A^{2p-1}=1-p\alpha
+ \pmod {p^2}.
+\]
+After multiplication, the cited congruence reduces to
+\[
+ 12\theta\alpha-E_2+B^p=0\pmod p.
+\]
+Finally, $B\equiv E_2=12X\pmod p$ and Fermat's theorem gives
+$B^p/12=X^p$.  Division by $12$ proves
+\eqref{eq:first-hasse-derivative}.
+\end{proof}
+
+The two affine pieces obey short recurrences.  They isolate the exact
+identity that a uniform proof still has to control.
+
+\begin{proposition}[Recurrences for the affine pieces]
+\label{prop:factorial-affine-recurrences}
+Put
+\[
+ \Xi=\frac C{12}\in\mathbb F_p[[q]].
+\]
+Whenever both sides are defined on the second branch of the ordinary
+theta cycle,
+\begin{align}
+ \mathcal C_{d+1}-\theta\mathcal C_d
+  &=\bigl((k-d-1)(\Xi+X^p)-(d+1)X\bigr)U_{s+d},
+  \label{eq:C-affine-recurrence}\\
+ \mathcal M_{d+1}-\theta\mathcal M_d
+  &=-2X U_{s+d}
+    +\frac{d!}{144}E_4X^{d-1}U_s
+    -(d-1)!X^dU_{s+1}.
+  \label{eq:M-affine-recurrence}
+\end{align}
+These are identities in $\mathbb F_p[[q]]$, before taking a Hasse
+quotient.
+\end{proposition}
+
+\begin{proof}
+The definition of $\Phi_t$ gives $\Phi_{t+1}=\theta\Phi_t$.  On the
+second branch one has $v_t\equiv t+1\pmod p$.  Thus
+\eqref{eq:eta-recursion} becomes
+\[
+ \eta_{t+1}=\theta\eta_t+\alpha U_{t+1}
+ +(t+1)\Xi U_t.
+\]
+Insert this formula into the definitions of $\mathcal C_{d+1}$ and
+$\mathcal M_{d+1}$.  Since the characteristic is $p$,
+$\theta(X^p)=0$, and hence
+$\theta(X^pU_t)=X^pU_{t+1}$.  Collecting coefficients gives
+\eqref{eq:C-affine-recurrence}.
+
+Here $\Xi=C/12$ remains separate from $\theta\alpha$.  In general the
+Serre derivative of $E_{p-1}$ can contain a cusp-form term, so identifying
+these two divided series would not be valid uniformly.  We use only
+Lemma~\ref{lem:first-hasse-derivative}, which gives
+$\theta\alpha+X^p=X$.
+
+For the second recurrence, use in addition
+\[
+ \theta X=X^2-\frac{E_4}{144}.
+\]
+The product rule gives
+\[
+ \theta(X^dU_s)
+ =dX^{d+1}U_s-\frac d{144}E_4X^{d-1}U_s+X^dU_{s+1}.
+\]
+After multiplication by $(d-1)!$, the first term cancels the
+$d!X^{d+1}U_s$ term in $\mathcal M_{d+1}$.  The remaining terms are
+exactly \eqref{eq:M-affine-recurrence}.
+\end{proof}
+
+\begin{lemma}[A modular divided series]
+\label{lem:xi-plus-xp-modular}
+The series
+\[
+ Y:=\Xi+X^p
+\]
+is the $q$-expansion of a modular form in $M_{p+1}(\mathbb F_p)$.
+\end{lemma}
+
+\begin{proof}
+The Serre derivative
+\[
+ \partial A=\theta A-\frac{p-1}{12}E_2A
+\]
+and $B$ are modular forms of weight $p+1$.  Since $A\equiv1\pmod p$,
+one has $12\partial A\equiv B\pmod p$.  Hence
+\[
+ H:=\frac{12\partial A-B}{12p}\pmod p
+\]
+ belongs to $M_{p+1}(\mathbb F_p)$ by the integral $q$-expansion
+ principle.  From
+$B-AE_2=12p\Xi$ and $A=1+p\alpha$ one obtains
+\[
+ H=\theta\alpha-X-\Xi.
+\]
+Lemma~\ref{lem:first-hasse-derivative} gives
+$H=-(\Xi+X^p)=-Y$, which proves the claim.
+\end{proof}
+
+The recurrence errors are not new obstruction classes.  They already lie
+below the next lower Hasse cutoff.
+
+\begin{corollary}[The recurrence errors vanish in the next quotient]
+\label{cor:factorial-recurrence-errors-low}
+Fix $m$, and let $w_{m,d}=k+2i-p(p-1)$ for the cell with parameter $d$.
+If
+\[
+ 1\leq d\leq k-2m-2,
+\]
+then the right sides of \eqref{eq:C-affine-recurrence} and
+\eqref{eq:M-affine-recurrence} belong to
+$M_{w_{m,d+1}}(\mathbb F_p)$.  Consequently
+\begin{align*}
+ [\mathcal C_{d+1}]&=[\theta\mathcal C_d],\\
+ [\mathcal M_{d+1}]&=[\theta\mathcal M_d]
+\end{align*}
+after reduction modulo $M_{w_{m,d+1}}(\mathbb F_p)$.
+\end{corollary}
+
+\begin{proof}
+The terms $YU_{s+d}$ and $XU_{s+d}$ have filtration at most
+\[
+ F_1=k+2s+2+d(p+1).
+\]
+The same bound holds for $X^dU_{s+1}$.  Direct substitution gives
+\[
+ F_1-w_{m,d+1}=-(p-2-d-2m)(p-1)<0.
+\]
+The remaining term $E_4X^{d-1}U_s$ has filtration
+\[
+ F_2=k+(s+d-1)(p+1)+4,
+\]
+and
+\[
+ F_2-w_{m,d+1}=(d-k+2m+1)(p-1)<0.
+\]
+Both strict inequalities follow from $d\leq k-2m-2$ and $k<p-1$.
+Thus every recurrence-error term has a representative of weight at most
+$w_{m,d+1}$, as claimed.
+\end{proof}
+
+Corollary~\ref{cor:factorial-recurrence-errors-low} removes every
+inhomogeneous source from the proposed induction in $d$.  It does not by
+itself finish that induction: applying $\theta$ to a form of weight
+$w_{m,d}$ naturally produces weight $w_{m,d}+p+1$, whereas the next cutoff
+is $w_{m,d}+2$.  The remaining step is therefore one precise Hasse-descent
+claim for the differentiated previous class, not another factorial or
+binomial identity.
 
 \begin{lemma}[Unit-block endpoint coefficient]
 \label{lem:unit-block-endpoint}
@@ -303,9 +658,139 @@ their difference is
 \]
 \end{proof}
 
+\begin{lemma}[The finite block has no triangular endpoint]
+\label{lem:finite-block-no-endpoint}
+On either triangular line, the divided finite block obtained after the
+inversion identity has the form
+\begin{equation}
+\label{eq:finite-triangular-block}
+ \mathcal F_i=\sum_{\ell=np}^{np+p-k}
+ b_{i,\ell}X^{i-\ell}\theta^\ell f
+ \qquad (b_{i,\ell}\in\mathbb F_p).
+\end{equation}
+On the line $i'+n=2p-k-1$, its class belongs to $V_m^-$.  On the line
+$i'+n=2p-k$, its class belongs to $V_m^+$.  Consequently its coefficient
+at the distinguished $X^p$ endpoint is zero on both lines for every
+admissible $p,k,m$.
+\end{lemma}
+
+\begin{proof}
+For completeness, first consider the lower exponents produced by the
+inversion.  Put
+\[
+ a_{i,j}=\binom ij\frac{(i+k-1)!}{(j+k-1)!},
+ \qquad
+ b_{j,\ell}=(-1)^{j-\ell}\binom j\ell
+             \frac{(j+k-1)!}{(\ell+k-1)!}.
+\]
+For $\ell<np$, the coefficient $K_\ell$ after division by $p$ satisfies
+\[
+ pK_\ell
+ =a_{i,\ell}
+   \sum_{u=np-\ell}^{np+p-k-\ell}
+      (-1)^u\binom{i-\ell}{u}.
+\]
+This follows by substituting the inversion formula and using
+$\binom ij\binom j\ell=\binom i\ell\binom{i-\ell}{j-\ell}$.
+To make the divisibility explicit, write $\ell=up+b$ with
+$0\leq b<p$.  Because $\ell<np$, one has $u\leq n-1$.  Legendre's
+formula and Kummer's theorem give
+\[
+ v_p(a_{i,\ell})
+ =n+1-u-\boldsymbol 1_{b\geq p-k+1}
+   +\boldsymbol 1_{b>i'}.
+\]
+This valuation can equal $1$ only when
+$u=n-1$ and $p-k+1\leq b\leq i'$.  This is exactly the interval
+$np-k+1\leq\ell\leq i-p$.  Thus $p^2\mid a_{i,\ell}$ outside that
+interval.  If $\ell$ lies inside it, put
+$q=i-p-\ell$.  Then $0\leq q<p$,
+\[
+ i-\ell=p+q,\qquad
+ np-\ell>q,\qquad np+p-k-\ell<p.
+\]
+Lucas's theorem gives $\binom{p+q}{u}=0\pmod p$ throughout the displayed
+summation range.  In both cases $p^2\mid pK_\ell$, so
+$K_\ell=0\pmod p$.  This proves that the divided finite block has the
+range in \eqref{eq:finite-triangular-block}.
+
+Write $\ell=np+t$, where $0\leq t\leq p-k$.  Since
+$n=p-2-m$, coefficientwise Fermat periodicity gives
+\[
+ \theta^{np+t}f=
+ \begin{cases}
+  \theta^{p-2-m+t}f,&0\leq t\leq m+1,\\
+  \theta^{t-m-1}f,&m+2\leq t\leq p-k,
+ \end{cases}
+ \qquad\text{in }\mathbb F_p[[q]].
+\]
+
+On the first triangular line, $i'=p-k+m+1$.  For $0\leq t\leq m+1$,
+the corresponding term in \eqref{eq:finite-triangular-block} is
+\[
+ X^{p-k+m+1-t}\theta^{p-2-m+t}f.
+\]
+The two exponents add to $2p-k-1$, and the $X$ exponent lies in the
+range defining $V_m^-$.  For $t\geq m+2$, the two exponents add to
+$p-k$.  Such a term is congruent to a modular form of weight
+\[
+ F_-=k+(p-k)(p+1).
+\]
+A direct substitution gives
+\[
+ F_--w_-=(2m+2-k)(p-1)\leq0.
+\]
+It therefore lies in $M_{w_-}(\mathbb F_p)$ and is zero in the quotient.
+This proves that $[\mathcal F_i]\in V_m^-$.
+
+On the second triangular line, $i'=p-k+m+2$.  For
+$0\leq t\leq m+1$, the term is
+\[
+ X^{p-k+m+2-t}\theta^{p-2-m+t}f,
+\]
+whose exponents add to $2p-k$ and whose $X$ exponent lies in the range
+defining $V_m^+$.  For $t\geq m+2$, the exponents add to $p-k+1$, so the
+term has a modular representative of weight
+\[
+ F_+=k+(p-k+1)(p+1).
+\]
+Here
+\[
+ F_+-w_-=(2m+3-k)(p-1)\leq0.
+\]
+Thus these terms also vanish in the lower quotient, and
+$[\mathcal F_i]\in V_m^+$.  Proposition
+\ref{prop:triangular-endpoint-independent} shows that the omitted endpoint
+is independent of each preceding span.  Its coefficient in
+$\mathcal F_i$ is therefore zero.
+\end{proof}
+
+\begin{lemma}[Exact filtration after multiplication by $X$]
+\label{lem:x-exact-filtration}
+Let $g$ be a nonzero mod-$p$ modular form with exact filtration
+$\omega_p(g)=v$.  For every $a\geq0$,
+\[
+ \omega_p(X^ag)=v+a(p+1).
+\]
+Here $X$ is viewed as the mod-$p$ modular form
+$E_{p+1}/12\equiv E_2/12$.
+\end{lemma}
+
+\begin{proof}
+Choose a representative of $g$ in $M_v(\mathbb F_p)$.  The standard
+Hasse-divisibility criterion says that its weight is minimal exactly when
+it is not divisible by the Hasse invariant $A$
+\cite{SwDyer1973,Katz1973}.  By Lemma~\ref{lem:eisenstein-unit}, $X$ is a
+unit along the Hasse divisor.  Multiplication by $X^a$ therefore does not
+change the order of vanishing along that divisor, so $X^ag$ is still not
+divisible by $A$.  It has weight $v+a(p+1)$.  Applying the same
+Hasse-divisibility criterion once more shows that this weight is minimal.
+\end{proof}
+
 \begin{proposition}[Uniform separation of the triangular endpoint]
 \label{prop:triangular-endpoint-independent}
-Assume that $f$ is ordinary at $p$, that $4\leq k<p-1$, and that a
+Assume that $f$ is nonzero modulo $p$, is ordinary at $p$, has
+$\omega_p(f)=k$, that $4\leq k<p-1$, and that a
 $D=0$--$D=2$ cross-wedge cell lies on one of the two triangular lines in
 \eqref{eq:three-boundary-lines}.  Put $m=p-2-n$.  Then
 \[
@@ -336,10 +821,7 @@ cycle.  For $0\leq t<p$, its filtration is
   k+t(p+1)-(p-k+1)(p-1),&t\geq\ell_0.
  \end{cases}
 \]
-By Lemma~\ref{lem:eisenstein-unit}, the reduction of $E_{p+1}$ is a unit
-along the Hasse divisor.  Since $X=E_2/12\equiv E_{p+1}/12\pmod p$ and
-$12$ is a unit, multiplication by $X$ does not change the order of Hasse
-divisibility.  Therefore
+Lemma~\ref{lem:x-exact-filtration} gives
 \[
  \omega_p(X^a\theta^t f)=\omega_p(\theta^t f)+a(p+1).
 \]
@@ -398,10 +880,9 @@ filtrations of the preceding generators.  The strict inequalities above
 contradict the exact endpoint filtration.  This proves both assertions.
 \end{proof}
 
-The exact audit further separates the endpoint in
-\eqref{eq:l1-endpoint}--\eqref{eq:l2-endpoint}.  The triangular
-$B$-block sum has zero distinguished-endpoint coefficient, while the
-explicit first-Hasse-jet correction in
+Lemma~\ref{lem:finite-block-no-endpoint} proves that the triangular
+$B$-block sum has zero distinguished-endpoint coefficient on both lines.
+The exact audit further shows that the explicit first-Hasse-jet correction in
 \eqref{eq:periodic-first-jet-identity} has coefficient $m+1$ in all
 $156$ tested cells.  Together with \eqref{eq:unit-minus-shifted}, this gives
 \[
@@ -421,7 +902,109 @@ associated-graded simplification
 where $V_m^1=V_m^-$ and $V_m^0=V_m^+$.  The independence of the
 displayed endpoint is Proposition~\ref{prop:triangular-endpoint-independent};
 the first-Hasse-jet formula itself is Theorem~\ref{thm:explicit-periodic-first-jet}.
-Only its simplification to the displayed coefficient remains open.
+Only the uniform triangular containment of the remaining core series is
+open.  The unit block, finite block, and low-point jet corrections are now
+proved.
+
+The two open endpoint simplifications have a common core.  The next
+proposition records it exactly.  The low-point proposition then removes the
+jet corrections and leaves one direct block-basis containment.
+
+\begin{proposition}[A common core for the two endpoint identities]
+\label{prop:endpoint-common-core}
+Put $s=p-k$, $U_t=\theta^t f$, and define
+\begin{align*}
+ T_s&=-\Phi_s+2\alpha U_s+(k+1)X^pU_{s-1},\\
+ T_{s+1}&=-\Phi_{s+1}+2\alpha U_{s+1}+(k-1)X^pU_s,\\
+ S_s&=\alpha U_s+X^pU_{s-1}.
+\end{align*}
+On the first triangular line, the endpoint identity is equivalent to
+\begin{equation}
+\label{eq:first-endpoint-core}
+ -\eta_s+(m+1)T_s-kS_s
+ \in V_m^-+M_{w_-}(\mathbb F_p).
+\end{equation}
+On the second triangular line, it is equivalent to
+\begin{equation}
+\label{eq:second-endpoint-core}
+ -\eta_{s+1}+(m+1)T_{s+1}
+ \in V_m^++M_{w_-}(\mathbb F_p).
+\end{equation}
+Moreover,
+\begin{equation}
+\label{eq:endpoint-core-theta-bridge}
+ T_{s+1}=\theta T_s-2XU_s.
+\end{equation}
+The term $XU_s$ belongs to $M_{w_-}(\mathbb F_p)$ on the second line.
+Thus, after the lower cutoff, the same core series $T_s$ controls both
+endpoint problems.  Proposition~\ref{prop:low-point-jets-low} below the
+displayed cutoffs removes the two jet terms.  The only remaining endpoint
+problem is the triangular containment of $T_s$ and its theta image.
+\end{proposition}
+
+\begin{proof}
+On the first line one has $d=0$, $L=-(m+1)$,
+$a=k-2m-2$, and $q_1=-km$.  Substitute these values in
+\eqref{eq:periodic-first-jet-identity}, subtract $\mathcal L_i$, and add
+the target endpoint $(m+1)X^pU_{s-1}$.  The result is exactly the left
+side of \eqref{eq:first-endpoint-core}.
+
+On the second line, put $d=1$ in
+Proposition~\ref{prop:factorial-affine-reduction}.  Since
+$Z_1=XU_s$ and
+\[
+ \omega_p(Z_1)-w_-=(2m+3-k)(p-1)<0,
+\]
+the term $mZ_1$ lies below the cutoff.  Adding the target endpoint
+$(m+1)X^pU_s$ then gives
+\eqref{eq:second-endpoint-core}.
+
+Finally, $\Phi_{s+1}=\theta\Phi_s$,
+$\theta(X^p)=0$, and Lemma~\ref{lem:first-hasse-derivative} gives
+$\theta\alpha=X-X^p$.  Applying the product rule to $T_s$ yields
+\[
+ \theta T_s
+ =-\Phi_{s+1}+2\alpha U_{s+1}
+   +2XU_s+(k-1)X^pU_s,
+\]
+which is \eqref{eq:endpoint-core-theta-bridge}.  The filtration statement
+for $XU_s$ is the displayed gap above.
+\end{proof}
+
+\begin{corollary}[Exact remaining endpoint target]
+\label{cor:remaining-endpoint-target}
+On the first triangular line, the endpoint identity is equivalent to
+\[
+ T_s\in V_m^-+M_{w_-}(\mathbb F_p).
+\]
+On the second triangular line, it is equivalent to
+\[
+ T_{s+1}\in V_m^++M_{w_-}(\mathbb F_p).
+\]
+The two series satisfy
+$T_{s+1}=\theta T_s-2XU_s$, and the last term is below the second-line
+cutoff.  Thus the open endpoint calculation is a triangular block-basis
+containment for one core series and its theta image.  It is no longer a
+comparison of the pre-low-point and reset jets.
+\end{corollary}
+
+\begin{proof}
+For the first line, rewrite \eqref{eq:first-endpoint-core} as
+\[
+ (m+1)T_s-(\eta_s+kS_s).
+\]
+The second term lies below the cutoff by
+Proposition~\ref{prop:low-point-jets-low}.  For the second line,
+$\eta_{s+1}$ lies below the cutoff by the same proposition.  Since
+$1\leq m<p-1$, the scalar $m+1$ is a unit in $\mathbb F_p$.  The two
+equivalences follow, and the last statement is
+\eqref{eq:endpoint-core-theta-bridge}.
+\end{proof}
+
+Figure~\ref{fig:low-point-endpoint-reduction} summarizes the reduction.  It
+also marks the precise point where the proof stops: the two green jet terms
+are theorems, while the two dashed triangular containments remain open.
+\input{low_point_endpoint_figure.tex}
 
 There is a parallel uniform statement on the third line.  It does not
 determine the scalar in \eqref{eq:l3-residual}, but it proves that the
@@ -509,7 +1092,7 @@ Their product is nonzero modulo $p$.
 \end{proof}
 
 The finite evidence for this stronger statement is broader than the
-discovery table.  A blind extension through $p=61$ checked $464$
+discovery table.  A blind extension through $p=79$ checked $652$
 third-line cells and found no zero scalar, no failure of the one-block
 shape.  A separate weight-$24$ test, where the cusp-form space is
 two-dimensional, checked $1{,}860$ cells from $186$ ordinary forms and
@@ -558,7 +1141,8 @@ unspecified minimal-weight projection compatibility square by an exact operator
 formula.  What remains is the formal reduction of
 \eqref{eq:periodic-first-jet-identity} to
 \eqref{eq:factorial-block-reduction}, together with the two triangular
-endpoint coefficients.  The audit identifies those associated-graded
-coefficients as the unit $-(m+1)$.  Proposition
+core-series containments in Corollary~\ref{cor:remaining-endpoint-target}.
+The audit identifies the resulting endpoint coefficient as the unit
+$-(m+1)$.  Proposition
 \ref{prop:triangular-endpoint-independent} already supplies endpoint
 independence; it must not be counted among the remaining conjectural inputs.

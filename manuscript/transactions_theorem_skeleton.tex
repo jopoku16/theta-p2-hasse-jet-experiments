@@ -68,8 +68,9 @@ by itself identify the two particular obstruction classes.
 
 \begin{conjecture}[Cross-wedge Bockstein compatibility]
 \label{conj:cross-wedge-bockstein}
-Assume that $f$ is ordinary at $p$, $4\le k<p-1$, and that both $i$ and
-$i^\dagger$ lie in the nondegenerate band. If
+Assume that $f$ is nonzero modulo $p$, is ordinary at $p$, has
+$\omega_p(f)=k$, $4\le k<p-1$, and that both $i$ and $i^\dagger$ lie in
+the nondegenerate band. If
 \[
  D(i)=0,\qquad D(i^\dagger)=2,
 \]
@@ -112,8 +113,16 @@ Otherwise $\delta(\theta^i f)=0$.
 
 \begin{proposition}[Conditional shifted-conic deduction]
 \label{prop:conditional-shifted-conic}
-Conjecture~\ref{conj:cross-wedge-bockstein} implies
-Conjecture~\ref{conj:exact-d0-shifted-conic}.
+Assume Conjecture~\ref{conj:cross-wedge-bockstein}.  Assume also that the
+complementary $D=2$ cell lies in the exact range where
+\[
+ \Gamma_{w_+}(\theta^{i^\dagger}f)=0
+ \quad\Longleftrightarrow\quad
+ (i'^\dagger)^2+(k-1)i'^\dagger
+   -n^\dagger(n^\dagger+1)\equiv0\pmod p.
+\]
+Then the vanishing equivalence in
+Conjecture~\ref{conj:exact-d0-shifted-conic} holds.
 \end{proposition}
 
 \begin{proof}
@@ -126,10 +135,13 @@ The two elementary congruences above transform this into
 \[
  i'^2+(k-1)i'-(n+1)(n+2).
 \]
-The $D=2$ theorem of Ahlgren--Raum--Richter \cite{ARR2026} says that the
-complementary obstruction vanishes exactly on this conic.  The assumed
-cross-wedge compatibility transfers this vanishing to $i$.  This gives the
-claimed equivalence and proves the implication.
+The additional $D=2$ hypothesis says that the complementary obstruction
+vanishes exactly when this polynomial is zero.  The assumed cross-wedge
+compatibility transfers this vanishing to $i$.  This gives the claimed
+equivalence.  Ahlgren--Raum--Richter \cite[Theorem~C]{ARR2026} motivate
+this hypothesis: they prove exact values off the exceptional locus in the
+stated ranges and a sharper upper bound on that locus.  Their theorem alone
+is not being used here as an exact vanishing equivalence in our coordinates.
 \end{proof}
 
 \begin{conjecture}[Corrected global duality]

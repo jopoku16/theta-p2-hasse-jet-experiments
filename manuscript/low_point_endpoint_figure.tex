@@ -1,0 +1,55 @@
+\begin{figure}[t]
+\centering
+\resizebox{0.96\linewidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  state/.style={draw=black!70, rounded corners=1pt, align=center,
+                minimum width=4.25cm, minimum height=1.05cm, inner sep=5pt},
+  result/.style={draw=black!70, rounded corners=1pt, align=center,
+                 minimum width=4.25cm, minimum height=0.95cm, inner sep=5pt,
+                 fill=green!12},
+  open/.style={draw=red!70!black, dashed, rounded corners=1pt, align=center,
+               minimum width=4.25cm, minimum height=0.95cm, inner sep=5pt,
+               fill=red!3},
+  bridge/.style={draw=black!55, rounded corners=1pt, align=center,
+                 minimum width=4.10cm, minimum height=0.82cm, inner sep=4pt,
+                 fill=black!3},
+  cycle/.style={draw=black!55, rounded corners=1pt, align=center,
+                minimum width=3.55cm, minimum height=0.82cm, inner sep=4pt,
+                fill=blue!3},
+  flow/.style={-{Latex[length=2mm]}, thick, draw=black!65}
+]
+\node[state, fill=blue!8] (pre) at (0,0)
+  {pre-low point $s=p-k$\\$G_s\equiv U_s\pmod p$};
+\node[state, fill=blue!8] (reset) at (6.0,0)
+  {first low point $h=s+1$\\$G_h=F_h\equiv U_h\pmod p$};
+\node[cycle] (cycle) at (3.0,1.35)
+  {ordinary theta cycle\\low-point reset};
+\draw[flow] (pre.north) |- (cycle.west);
+\draw[flow] (cycle.east) -| (reset.north);
+
+\node[result] (prejet) at (0,-1.65)
+  {$\eta_s+kS_s\in M_{w_-}$\\on the first triangular line};
+\node[result] (resetjet) at (6.0,-1.65)
+  {$\eta_h\in M_{w_-}$\\on the second triangular line};
+\draw[flow] (pre) -- (prejet);
+\draw[flow] (reset) -- (resetjet);
+
+\node[open] (first) at (0,-3.25)
+  {remaining target\\$T_s\in V_m^-+M_{w_-}$};
+\node[open] (second) at (6.0,-3.25)
+  {remaining target\\$T_h\in V_m^++M_{w_-}$};
+\draw[flow] (prejet) -- (first);
+\draw[flow] (resetjet) -- (second);
+\node[bridge] (theta) at (3.0,-4.70)
+  {theta bridge\\$T_h=\theta T_s-2XU_s$, \quad $2XU_s\in M_{w_-}$};
+\draw[flow] (first.south) |- (theta.west);
+\draw[flow] (theta.east) -| (second.south);
+\end{tikzpicture}%
+}
+\caption{The first low point and the two endpoint reductions.  The green
+boxes are proved lower-weight statements.  After removing these jet terms,
+the two endpoint identities reduce to the dashed triangular containments.
+The theta bridge links their remaining core series.}
+\label{fig:low-point-endpoint-reduction}
+\end{figure}

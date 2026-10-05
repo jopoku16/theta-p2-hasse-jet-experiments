@@ -21,15 +21,15 @@
 \draw[flow] (wedge) -- (pattern);
 
 \node[proved, minimum width=4.35cm, below=0.75cm of wedge, xshift=-1.25cm]
-  (theory) {proved mechanism\\first Hasse jet, perfect pairing,\\boundary-direction separation};
+  (theory) {proved mechanism\\first Hasse jet, perfect pairing,\\low-point formulas and separation};
 \node[open, minimum width=4.35cm, right=0.5cm of theory]
-  (conjecture) {precise remaining target\\factorial block reduction and\\two endpoint coefficients};
+  (conjecture) {precise remaining target\\factorial block reduction and\\two triangular containments};
 \draw[flow] (pattern.south) -- ++(0,-0.28) -| (theory.north);
 \draw[flow] (pattern.south) -- ++(0,-0.28) -| (conjecture.north);
 \draw[flow] (theory) -- (conjecture);
 
 \node[found, minimum width=4.35cm, below=0.65cm of conjecture]
-  (tests) {$2{,}324$ third-line tests\\plus $210{,}176$ index audits\\no recorded failure};
+  (tests) {$2{,}512$ third-line tests\\plus $210{,}176$ index audits\\no recorded failure};
 \draw[flow] (conjecture) -- (tests);
 \end{tikzpicture}
 }
@@ -39,4 +39,3 @@ the uniform results proved here.  The dashed box is the remaining symbolic
 identity; finite tests support it but do not prove it.}
 \label{fig:experimental-workflow}
 \end{figure}
-

@@ -7,12 +7,13 @@ level $D(i)$ is included explicitly so that the later references to the
 $D=0$ and $D=2$ strata are self-contained.
 
 \begingroup
-\renewcommand{\arraystretch}{1.16}
+\renewcommand{\arraystretch}{1.08}
 \noindent\begin{tabularx}{\linewidth}{@{}>{$}l<{$}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \text{Symbol} & \text{Meaning}\\
 \midrule
-p,\ k,\ f & $p\geq5$ is prime; $f$ is an ordinary level-one form of weight
+p,\ k,\ f & $p\geq5$ is prime; $f\in M_k(\mathbb Z_{(p)})$ is nonzero
+modulo $p$, has $\omega_p(f)=k$, and is ordinary at $p$, with
 $4\leq k<p-1$.\\
 \theta,\ \omega_{p^a} & The operator $q\,d/dq$ and weight filtration modulo
 $p^a$, respectively.\\
@@ -50,6 +51,12 @@ comparison.\\
 \endgroup
 
 \paragraph{Terminology.}
+Write $f=\sum a(n)q^n$.  Following Ahlgren--Raum--Richter
+\cite{ARR2026}, $f$ is \emph{non-ordinary at $p$} if
+$a(np)\equiv0\pmod p$ for every $n$, or equivalently if
+$\theta^{p-1}f\equiv f\pmod p$.  It is \emph{ordinary} otherwise.  This
+definition applies to all modular forms, not only to eigenforms.
+
 A \emph{first Hasse jet} is a class on the thickened Hasse divisor $Z$.
 A \emph{Bockstein class} is the intrinsic obstruction to an integral
 weight-lowering lift.  A \emph{minimal-weight projection} is a chosen
@@ -91,16 +98,17 @@ Uses duality on $Z$; independent of all finite computations and block
 formulas.\\
 Integral & Bockstein realization, Hasse inclusion, and the explicit
 periodic first-Hasse-jet formula & Uses integral Eisenstein lifts and the
-first ordinary low-point congruence; supplies the minimal-weight projection.\\
+first ordinary low-point congruence; supplies the minimal-weight projection
+and closed formulas for both low-point jet corrections.\\
 Filtration & Uniform separation of all three boundary directions and
 nonvanishing of the factorial scalar candidate & Uses exact mod-$p$
 filtration; independent of the factorial block reduction.\\
 Computational & Exact classification of $692$ cross-wedge cells and
-$2{,}324$ third-line stress tests & Proved only on the deposited finite
+$2{,}512$ third-line stress tests & Proved only on the deposited finite
 range; discovers and falsifies formulas but is not extrapolated to all $p$.\\
-Conditional & Factorial block reduction and two triangular endpoint
-coefficients & Would identify the actual boundary residuals and imply the
-shifted-conic filtration law.\\
+Conditional & Factorial block reduction and two triangular containments for
+the endpoint core & Would identify the actual boundary residuals and imply
+the shifted-conic filtration law.\\
 \bottomrule
 \end{tabularx}
 \endgroup

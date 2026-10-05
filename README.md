@@ -17,7 +17,7 @@ arithmetic. No floating-point approximation or random sampling is used.
 - All 234 failures lie on three stated boundary lines.
 - The data contain 20 interior zeros, exactly where the shifted quadratic
   vanishes.
-- Two later tests give 2,324 exact matches with the proposed factorial
+- Two later tests give 2,512 exact matches with the proposed factorial
   boundary scalar.
 - An index and filtration audit checks 210,176 parameter cells through
   prime 101 with no recorded failure.
@@ -41,26 +41,33 @@ python run_core_audit.py
 ```
 
 The audit stops if a command fails or an expected exact summary is missing.
-The four commands run by the audit are:
+The seven commands run by the audit are:
 
 ```text
 python verify_periodic_first_jet.py data/d0_obstruction_coordinates.csv
-python stress_test_l3_uniformity.py --max-p 61
+python stress_test_l3_uniformity.py --max-p 79
 python stress_test_l3_weight24.py --max-p 43
 python audit_index_formulas.py
+python audit_factorial_affine_reduction.py
+python audit_triangular_endpoint_source.py data/d0_obstruction_coordinates.csv --examples 0
+python audit_low_point_jets.py
 ```
 
 Expected final lines:
 
 ```text
 rows=692 checked=692 bad_weight=0 bad_mod_p=0 bad_beta=0
-checked=464 zero=0 failed_shape=0 wrong_scalar=0
+checked=652 zero=0 failed_shape=0 wrong_scalar=0
 ordinary_forms=186 checked=1860 zero=0 failed_shape=0 wrong_scalar=0
 audited_cells=210176 failures=0 max_prime=101
+affine_checked=614 recurrence_checked=156 failures=0
+outcomes={'L1_B_endpoint_zero_match': 78, 'L1_correction_endpoint_match': 78, 'L1_unit_match': 78, 'L2_B_endpoint_zero_match': 78, 'L2_correction_endpoint_match': 78, 'L2_unit_match': 78}
+families=15 triangular_identities=273 modularized_jets=273 first_cutoffs=78 second_cutoffs=78 failures=0
 ```
 
-Release `v1.1.0` contains the corrected author record, the current manuscript,
-the exact audit runner, and the full source needed to reproduce these checks.
+Release `v1.2.0` contains the strengthened descent and filtration proofs, the
+current manuscript, the seven-audit runner, and the full source needed to
+reproduce these checks.
 
 ## Compile the paper
 

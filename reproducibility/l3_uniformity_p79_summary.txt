@@ -1,0 +1,11 @@
+Extended third-line uniformity audit
+Date: 4 October 2026
+
+Command:
+python -u stress_test_l3_uniformity.py --max-p 79
+
+Final summary:
+checked=652 zero=0 failed_shape=0 wrong_scalar=0
+
+The audit covers the supported ordinary level-one families through p=79.
+It is an exact finite falsification test. It is not a proof for all primes.

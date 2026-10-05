@@ -8,6 +8,7 @@
 *.out
 *.synctex.gz
 *.toc
+manuscript/experimental_manuscript.pdf
 
 # Python build files
 __pycache__/

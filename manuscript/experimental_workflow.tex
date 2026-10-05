@@ -3,21 +3,20 @@
 
 \subsection{Objects, arithmetic, and inclusion rules}
 
-The experiment concerns the filtration of $\theta^i f$ modulo $p^2$ for
-ordinary level-one modular forms of weight $4\leq k<p-1$.  Every reported
-comparison uses exact integer arithmetic.  Fourier expansions are retained
-past the Sturm bound at each relevant weight, so equality of the retained
-series is an exact equality of modular forms in the tested case.  No
-floating-point approximation, numerical tolerance, random sampling, or
-model fitting is used.
+We study the filtration of $\theta^i f$ modulo $p^2$ for ordinary level-one
+modular forms of weight $4\leq k<p-1$.  Every comparison uses exact integer
+arithmetic.  At each relevant weight, we keep the Fourier expansion past the
+Sturm bound.  Equality of the retained series therefore proves equality of
+the modular forms in that tested case.  We use no floating-point
+approximation, numerical tolerance, random sample, or fitted model.
 
 The computational record contains $5{,}572$ cells.  Of these, $5{,}434$
-satisfy the ordinary condition $k<p-1$.  The main experiment
-uses the $692$ ordinary, nondegenerate cells for which a $D=0$ index and its
-Tate complement lie in the proved $D=2$ wedge.  These cells range over
-primes $17\leq p\leq43$ and weights $8\leq k\leq22$.  A cell is included by
-these arithmetic conditions alone, before its obstruction class or the
-value of the candidate quadratic is inspected.
+satisfy the ordinary condition $k<p-1$.  The main experiment uses $692$
+ordinary, nondegenerate cells.  For each such cell, a $D=0$ index and its Tate
+complement lie in the proved $D=2$ wedge.  The cells cover primes
+$17\leq p\leq43$ and weights $8\leq k\leq22$.  We select a cell from these
+arithmetic conditions alone.  We do not inspect its obstruction class or the
+candidate quadratic before selection.
 
 For each cell, the program performs four exact operations:
 \begin{enumerate}
@@ -40,7 +39,7 @@ $\mathcal B_i-\mathcal L_i$ whenever the proposed identity fails.
 
 \subsection{How the pattern was found}
 
-We found the pattern in stages.  The first candidate reused the $D=2$
+We found the pattern in stages.  Our first candidate reused the $D=2$
 formula one Hasse step lower.  It failed in all $1{,}593$ ordinary,
 nondegenerate $D=0$ cells.  This negative control showed that a new
 first-order correction was needed.
@@ -60,25 +59,24 @@ vanished in exactly $20$ cases, and these were exactly the cases
 $q_1(n,i')=0$.  Thus the shifted conic was found only after the first
 formula failed and the full residuals identified the three boundary cases.
 
-The boundary residuals suggested further exact formulas.  On $i'=n+2$ the
-residual always occupied one explicit block direction, and rational
-reconstruction across primes produced the scalar
+The boundary residuals suggested further exact formulas.  On $i'=n+2$, the
+residual always lay in one explicit block direction.  Rational reconstruction
+across primes gave the scalar
 \[
  -m(k-2m-2)!,\qquad m=p-2-n.
 \]
 On the two triangular lines, exact elimination placed every residual in an
-explicit triangular span and recovered endpoint coefficient $-(m+1)$.
-These results led to the Hasse-jet and filtration arguments proved below.
+explicit triangular span.  It also gave the endpoint coefficient $-(m+1)$.
+These findings led to the Hasse-jet and filtration arguments proved below.
 
 \input{experimental_workflow_figure.tex}
 
 \subsection{Validation and negative controls}
 
-Table~\ref{tab:experimental-audit} separates discovery calculations,
-blind extensions, independent form tests, and symbolic-index audits.  A
-zero failure count means that the stated exact identity held throughout the
-specified finite range.  It does not convert the identity into a theorem
-for arbitrary primes.
+Table~\ref{tab:experimental-audit} separates discovery calculations, blind
+extensions, independent form tests, and symbolic-index audits.  A zero
+failure count means that the exact identity held over the stated finite
+range.  It is not a theorem for arbitrary primes.
 
 \begin{table}[t]
 \centering
@@ -115,12 +113,12 @@ mismatches separately.}
 \label{tab:experimental-audit}
 \end{table}
 
-The weight-$24$ experiment is important because the relevant cusp-form
-space is two-dimensional.  It tests two generators and their projective
-linear combinations rather than repeating the calculation on a single
-one-dimensional family.  The third-line extension is also separate from
-the original $78$ boundary cells: it searches new primes and weights after
-the one-block shape and factorial scalar have been specified.
+The relevant cusp-form space in the weight-$24$ experiment has dimension
+two.  The experiment tests two generators and their projective linear
+combinations.  It therefore does more than repeat the calculation on one
+one-dimensional family.  The third-line extension is also separate from the
+original $78$ boundary cells.  It tests new primes and weights after the
+one-block shape and factorial scalar have been fixed.
 
 \subsection{What would falsify the conjectural mechanism}
 

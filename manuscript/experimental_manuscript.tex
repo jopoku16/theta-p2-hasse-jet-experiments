@@ -27,19 +27,19 @@ Hasse-Jet Duality and a Shifted-Conic Conjecture}
 \maketitle
 
 \begin{abstract}
-Some weights in theta cycles modulo $p^2$ are still unknown.  We study one
-unresolved wedge.  We prove that its weight-lowering obstruction is a first
-Hasse jet, that the Hasse quotients have a perfect pairing, and that theta is
-skew-adjoint for this pairing.  We also construct the minimal-weight
-projection and prove that exact filtration separates the boundary directions.
-Exact computations classify $692$ ordinary cross-wedge cells: one shifted
-quadratic matches all $458$ interior obstructions, while the other $234$
-cells lie on three boundary lines.  Two independent tests give $2{,}512$
-matches with one factorial boundary scalar.  On the two triangular lines, we
-prove the unit and finite-block contributions and compute the low-point jets.
-The full shifted-conic law still depends on one factorial block identity and
-two triangular containments.  These three identities remain conjectural.  We
-provide exact code, negative controls, and tests that can detect a failure.
+Some weights in theta cycles modulo $p^2$ are unknown.  We study one such
+region.  We prove that its weight-lowering obstruction is a first Hasse jet.
+We also prove a perfect pairing for the Hasse quotients and show that theta is
+skew-adjoint for this pairing.  Our minimal-weight projection and filtration
+arguments separate the boundary directions.  Exact computations classify
+$692$ ordinary cross-wedge cells.  One shifted quadratic matches all $458$
+interior obstructions.  The other $234$ cells lie on three boundary lines.
+Two independent tests give $2{,}512$ matches with one factorial boundary
+scalar.  On the two triangular lines, we prove the unit and finite-block
+terms and compute the low-point jets.  The full shifted-conic law still needs
+one factorial block identity and two triangular containments.  These three
+identities remain conjectural.  We provide exact code, negative controls, and
+tests that can find a failure.
 \end{abstract}
 
 \noindent\textbf{Keywords:} theta cycles; modular forms modulo prime powers;
@@ -51,12 +51,12 @@ filtration.
 
 \section{Introduction}
 
-The theta cycle of a modular form modulo a prime is classical.  Modulo
-$p^2$, weight lowering has a new first-order obstruction.  A form may lower
-in weight modulo $p$ but fail to lower in the same way modulo $p^2$.
-Ahlgren, Raum, and Richter determined the initial segment and many later
-parts of the cycle \cite{ARR2026}.  Some low points in the next band remain
-unknown for general primes.
+The theta cycle of a modular form modulo a prime is classical.  A new
+first-order obstruction appears modulo $p^2$.  A form may lower in weight
+modulo $p$ but fail to lower in the same way modulo $p^2$.
+Ahlgren, Raum, and Richter determined the initial segment and gave later
+exact values and bounds \cite{ARR2026}.  Some low points in the next band
+remain unknown for general primes.
 
 The basic filtration theory modulo $p$ comes from work of
 Swinnerton-Dyer and Serre \cite{SwDyer1973,Serre1973}.  Katz gave a
@@ -65,39 +65,39 @@ Hasse invariant and the theta operator \cite{Katz1973}.  Later work on
 modular weights and companion forms developed this viewpoint further
 \cite{Edixhoven1992,ColemanVoloch1992}.
 
-We ask one exact question.  Does the quadratic pattern in the resolved wedge
-remain valid after reflection into the next wedge?  The first candidate
-failed on every tested $D=0$ cell.  We then added the missing minimal-weight
-projection.  In the interior, the lower Bockstein class was controlled by
+We ask one question.  Does the quadratic pattern in the resolved wedge remain
+valid after reflection into the next wedge?  Our first candidate failed on
+every tested $D=0$ cell.  We then added the missing minimal-weight projection.
+In the interior, the lower Bockstein class followed
 \begin{equation}\label{eq:intro-shifted-conic-experimental}
  i'^2+(k-1)i'-(n+1)(n+2)\quad\text{in }\mathbb F_p.
 \end{equation}
-All disagreements occurred on three affine lines.  Their full residuals
-then suggested one factorial block and two triangular endpoint formulas.
+Every disagreement occurred on one of three affine lines.  The full residuals
+suggested one factorial block and two triangular endpoint formulas.
 
-The paper explains how we found and tested this formula.  The calculation
-uses exact modular arithmetic and Sturm-safe remainders.  It includes a
-failed baseline and a blind prime extension.  It also includes a separate
-test in a two-dimensional cusp-form space.  We then prove the geometry used
-in the experiment.  The weight-lowering obstruction is a first Hasse jet.
-The ambient quotient has a perfect pairing.  Theta is skew-adjoint for this
+We explain how we found and tested this formula.  Every calculation uses
+exact modular arithmetic and Sturm-safe remainders.  The tests include a
+failed baseline, a blind extension to new primes, and a separate calculation
+in a two-dimensional cusp-form space.  We then prove the geometry behind the
+experiment.  The weight-lowering obstruction is a first Hasse jet.  The
+ambient quotient has a perfect pairing, and theta is skew-adjoint for this
 pairing.  Multiplication by the integral Hasse inclusion commutes with theta
-modulo $p^2$.  We also give the minimal-weight projection.  Exact filtration
-separates the proposed boundary directions.
+modulo $p^2$.  We also construct the minimal-weight projection.  Exact
+filtration separates the proposed boundary directions.
 
 Three identities remain open.  The direct formula should reduce to a
-factorial block identity.  This identity would give the generic
+factorial block identity.  That identity would give the generic
 shifted-conic law and the observed scalar on the third line.  Two triangular
-containments remain open on the other boundary lines.  The low-point jet
-terms in those containments are now evaluated uniformly.  We state the
-three remaining claims as conjectures because the present evidence is
-finite.
+containments remain open on the other boundary lines.  We compute their
+low-point jet terms for all admissible parameters.  We state the three
+remaining claims as conjectures because our computations cover only a finite
+range.
 
-The open identities are concrete coefficient problems in explicit block
-bases.  Their parameters satisfy short exact recurrences, and each proposed
-identity has a direct finite-field test.  These features give plausible proof
-routes and make counterexamples easy to detect, but they do not replace a
-uniform proof.
+The open identities are explicit coefficient problems in known block bases.
+Their parameters satisfy short exact recurrences.  Each identity also has a
+direct finite-field test.  These facts suggest possible proof methods and
+make counterexamples easy to find.  They do not replace a proof for all
+admissible primes.
 
 \paragraph{Scope.}
 We work with ordinary level-one forms and primes $p\geq5$.  The main census
@@ -105,13 +105,29 @@ ends at $p=43$; separate audits reach $p=79$ and $p=101$.  We do not treat
 non-ordinary forms, higher level, or the three open block identities as
 settled cases.
 
+\subsection{The main idea in plain language}
+
+A modular form has a Fourier expansion, which is an infinite list of
+coefficients.  The theta operator changes this list by multiplying the
+coefficient of $q^n$ by $n$.  A theta cycle records the smallest possible
+weight after each repeated use of theta.  The pattern modulo $p$ is well
+understood.  Modulo $p^2$, two forms can agree modulo $p$ but differ at the
+next $p$-adic level.  That first difference is the obstruction studied here.
+
+Most tested positions follow one shifted quadratic rule.  Three straight
+boundary lines need extra correction terms.  The geometric results explain
+where the obstruction lives and why the boundary terms are independent.  The
+exact computations then identify the formulas that a complete proof must
+establish.  Three coefficient identities are still open, so the paper keeps
+the final shifted-conic law as a conjectural application.
+
 The experiments identify the classification problem and the three boundary
 cases.  The theorems explain why the candidate has this form.  They also
 reduce the open part to explicit identities.
 
 \subsection{Main results and limits}
 
-The paper has three kinds of results.
+The results fall into three groups.
 \begin{enumerate}
 \item \textbf{Uniform theorems.}  We prove the first-Hasse-jet description,
       perfect Hasse-quotient duality, theta skew-adjointness, the explicit
@@ -128,8 +144,8 @@ The paper has three kinds of results.
       block-basis containments are still conjectural.  The full
       shifted-conic law is conditional on these identities.
 \end{enumerate}
-This split is used throughout the paper.  No finite calculation is stated as
-a theorem for all primes.
+We use this split throughout the paper.  A finite calculation is never stated
+as a theorem for all primes.
 
 \subsection{Relation to prior work}
 
@@ -148,13 +164,13 @@ shifted-conic law.
 
 \subsection{Guide to the paper}
 
-Section~\ref{sec:experimental-design} gives the finite experiment, negative
-controls, validation tests, and failure rules.  The next two sections give
-the first-Hasse-jet and direct block calculations.
+Section~\ref{sec:experimental-design} describes the finite experiment, the
+negative controls, the validation tests, and the failure rules.  The next two
+sections give the first-Hasse-jet and direct block calculations.
 Section~\ref{sec:experimental-interpretation} separates the finite evidence
-from the open claims.  The final sections state the conditional
-shifted-conic consequences, summarize theorem status, and give exact
-reproduction commands.
+from the open claims.  The final sections state the conditional shifted-conic
+consequences, list the status of each theorem, and give exact commands for
+reproducing the computations.
 
 \input{experimental_workflow.tex}
 
@@ -202,16 +218,16 @@ block reduction for every admissible parameter set.
 
 \section{Conclusion}
 
-The exact experiments find a shifted quadratic in the interior of the next
-theta-cycle wedge.  They also find three boundary residuals.  The geometry
-and filtration results place these residuals in the predicted quotient
-directions.  The first-Hasse-jet formula and the direct block calculation
-reduce the remaining problem to three coefficient identities.  The finite
-block has no triangular endpoint, and one exact theta recurrence links the
-two remaining endpoint cores.  Closed formulas remove the pre-low-point and
-reset jets from the open part.  The factorial block reduction and the two
-triangular containments remain open.  The table below separates the uniform
-theorems, finite results, conditional claims, and conjectures.
+The exact experiments find a shifted quadratic inside the next theta-cycle
+wedge and three extra residuals on its boundary.  The geometry and filtration
+results put these residuals in the predicted quotient directions.  The first
+Hasse jet and the direct block calculation reduce the open problem to three
+coefficient identities.  The finite block has no triangular endpoint.  One
+exact theta recurrence links the two remaining endpoint cores.  Closed
+formulas remove the pre-low-point and reset jets from the open part.  The
+factorial block reduction and the two triangular containments remain open.
+The table below states which results are uniform theorems, finite results,
+conditional claims, or conjectures.
 
 \clearpage
 \input{theorem_status_table.tex}
@@ -223,9 +239,11 @@ theorems, finite results, conditional claims, and conjectures.
 
 The public release contains the cell tables, obstruction coordinates,
 source code, and commands used for every computational count in this paper.
-It contains only research files.  Code, data, and versioned releases are
-available at
+It contains only research files.  Code, data, and versioned releases are in
+the public repository:
+\begin{center}
 \url{https://github.com/jopoku16/theta-p2-hasse-jet-experiments}.
+\end{center}
 
 \begin{thebibliography}{99}
 \raggedright

@@ -22,6 +22,16 @@ venv/
 *.key
 *.pem
 
+# Private submission and editorial files
+submission_private/
+private_notes/
+cover_letter*
+*decision_letter*
+*reviewer_report*
+*referee_report*
+SUBMISSION_METADATA*
+notes_to_editor*
+
 # Operating-system files
 .DS_Store
 Thumbs.db

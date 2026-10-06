@@ -27,7 +27,7 @@ The shifted leading-block candidate is the image in the same quotient of
  \mathcal L_i=q_1(n,i')X^p\theta^{i-p}f.
 \end{equation}
 
-\begin{proposition}[Finite exact audit]
+\begin{computationalresult}[Finite exact audit]
 \label{prop:finite-direct-audit}
 In the current Sturm-safe record of $692$ ordinary, nondegenerate
 $D=0$--$D=2$ complementary pairs, the following statements hold exactly.
@@ -84,7 +84,7 @@ Consequently every one of these $156$ residuals is nonzero.
 \end{enumerate}
 These statements are finite computations, not assertions for arbitrary
 $p$, $k$, and $f$.
-\end{proposition}
+\end{computationalresult}
 
 \begin{proof}
 The direct class is obtained by reducing $\theta^if$ modulo $p^2$ by the
@@ -159,6 +159,9 @@ point, the Chida--Kaneko congruence
  \qquad
  F_{\ell_0}(f)\equiv\theta^{\ell_0}f\pmod p.
 \]
+Both cited statements apply to every $p$-integral modular form of weight
+$k<p$.  The eigenform hypothesis in that paper is needed for its separate
+ordinariness criterion, not for this derivative congruence.
 Define a modular lift $G_r$ of $\theta^r f$ as follows.  If
 $r<\ell_0$, start with $G_0=f$ and apply \eqref{eq:modular-theta-lift}
 $r$ times.  If $r\geq\ell_0$, start with $G_{\ell_0}=F_{\ell_0}(f)$
@@ -785,6 +788,11 @@ unit along the Hasse divisor.  Multiplication by $X^a$ therefore does not
 change the order of vanishing along that divisor, so $X^ag$ is still not
 divisible by $A$.  It has weight $v+a(p+1)$.  Applying the same
 Hasse-divisibility criterion once more shows that this weight is minimal.
+Indeed, any lower representative has weight congruent to
+$v+a(p+1)$ modulo $p-1$.  The criterion would then force the displayed
+representative $X^ag$ to be divisible by $A$.  Since $X$ is a unit at the
+generic point of the Hasse divisor, this would force $g$ to be divisible by
+$A$, contrary to $\omega_p(g)=v$.
 \end{proof}
 
 \begin{proposition}[Uniform separation of the triangular endpoint]

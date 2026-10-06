@@ -65,11 +65,11 @@ outcomes={'L1_B_endpoint_zero_match': 78, 'L1_correction_endpoint_match': 78, 'L
 families=15 triangular_identities=273 modularized_jets=273 first_cutoffs=78 second_cutoffs=78 failures=0
 ```
 
-Release `v1.3.0` contains the plain-language manuscript revision, the
-strengthened descent and filtration proofs, the seven-audit runner, and the
-full source needed to reproduce these checks.  The release contains research
-materials only.  It does not contain submission correspondence, cover
-letters, reviewer files, or private notes.
+Release `v1.4.0` contains the final proof-audited manuscript revision, the
+strengthened descent, residue, and filtration explanations, the seven-audit
+runner, and the full source needed to reproduce these checks.  The release
+contains research materials only.  It does not contain submission
+correspondence, cover letters, reviewer files, or private notes.
 
 ## Compile the paper
 

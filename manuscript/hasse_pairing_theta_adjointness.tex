@@ -25,24 +25,31 @@ to a perfect pairing on the invariant subspaces.
 \end{lemma}
 
 \begin{proof}
+Write $V$ and $W$ for the two finite-dimensional spaces in the pairing.
 The cover is finite, flat, and surjective, and its degree is prime to $p$.
 The trace satisfies
 $\operatorname{Tr}_{\pi}\circ\pi^*=(\deg\pi)\operatorname{id}$.
 Since $\deg\pi$ is a unit in $\mathbb F_p$, pullback is injective.  The same
 argument applies after base change to a closed subscheme, including the
 thickened Hasse divisor.  For a Galois cover, exactness of the Reynolds
-operator identifies downstairs sections with invariants.  Finally,
-exactness of invariants gives
-$(V^\vee)^G\simeq(V^G)^\vee$ for every finite-dimensional $G$-module $V$.
-This proves the assertion about perfect pairings.
+operator identifies downstairs sections with invariants.  To check
+perfectness, let $v\in V^G$ be nonzero and choose $w\in W$ with
+$\langle v,w\rangle\ne0$.  Replace $w$ by its Reynolds average
+\[
+ \overline w=\frac{1}{|G|}\sum_{g\in G}gw.
+\]
+The pairing is $G$-invariant and $v$ is fixed, so
+$\langle v,\overline w\rangle=\langle v,w\rangle\ne0$.  The same argument
+with the two factors reversed proves nondegeneracy on both invariant
+subspaces.  This proves the assertion about perfect pairings.
 \end{proof}
 
 All constructions below commute with $G$.  One can alternatively state them
 directly on the tame compactified moduli stack.
 
-\begin{proposition}[Perfect Hasse-quotient pairing]
+\begin{proposition}[Natural perfect Hasse-quotient pairing]
 \label{prop:hasse-perfect-pairing}
-For every $r$ there is a canonical perfect pairing
+For every $r$ there is a natural perfect pairing
 \[
  \langle\ ,\ \rangle_r:
  Q_r\times Q_{P+2-r}\longrightarrow \mathbb F_p.
@@ -72,7 +79,10 @@ $\operatorname{Tr}_Z:H^0(Z,\omega_Z)\to\mathbb F_p$ to the resulting global
 section.  This gives the displayed pairing.  Duality for the finite
 Gorenstein scheme $Z$ identifies $\mathcal Q_{P+2-r}$ with
 $\mathcal Hom_Z(\mathcal Q_r,\omega_Z)$.  Therefore the pairing is perfect.
-The level-one statement follows from
+The standard Kodaira--Spencer isomorphism and canonical cusp section fix
+the normalization used here.  Rescaling either standard choice rescales
+the pairing by a nonzero scalar and does not affect perfectness or the
+adjointness statement below.  The level-one statement follows from
 Lemma~\ref{lem:tame-pullback-faithful}.
 \end{proof}
 
@@ -95,7 +105,7 @@ extension of the residue field, the completed Igusa cover has a parameter
 $u$ with $t=u^{p-1}$.  Suppose that a local section of $\omega_Z$ is
 represented by
 \[
- F(t)\frac{dt}{t^p},
+ F(t)\frac{dt}{t^p}.
  \]
 Its local Grothendieck trace is the coefficient of $t^{p-1}$ in $F(t)$, up to
 the fixed unit from the chosen trivialization.  Its pullback has residue
@@ -146,10 +156,12 @@ Notice that $h:=xy$ has weight
  P+1-p=(p-1)^2.
 \]
 Let $a$ be the canonical section on the Igusa curve, normalized by
-$a^{p-1}=A$.  Under Kodaira--Spencer, pull back the meromorphic differential
-represented by $\Theta h/A^p$.  The result is the exact differential attached
-to the function $h/a^{(p-1)^2}$.  This is the geometric description of theta
-in \cite[Proposition~5.8]{Gross1990}.
+$a^{p-1}=A$.  After pullback, division by $a^{(p-1)^2}$ turns a local lift
+of $h$ into a local function.  Under Kodaira--Spencer, the meromorphic
+differential represented by $\Theta h/A^p$ is the differential of this
+function.  This is the local form of the theta calculation in
+\cite[Proposition~5.8]{Gross1990}; the proposition states the same identity
+for graded Fourier expansions.
 
 We apply this formula to any local lift of $h$ from $Z$ to $X$.  The answer
 does not depend on the lift.  Indeed, another lift differs by $A^p g$.  Its
@@ -203,7 +215,7 @@ For every $r$ the formula
 \[
  [x,z]_r:=\langle x,B^{-p}z\rangle_r
 \]
-defines a canonical perfect pairing
+defines a natural perfect pairing
 \[
  [\ ,\ ]_r:
  Q_r\times Q_{P+2+p(p+1)-r}\longrightarrow\mathbb F_p.

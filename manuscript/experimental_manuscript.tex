@@ -15,6 +15,7 @@
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{corollary}[definition]{Corollary}
 \newtheorem{conjecture}[definition]{Conjecture}
+\newtheorem{computationalresult}[definition]{Computational Result}
 \theoremstyle{remark}
 \newtheorem{remark}[definition]{Remark}
 
@@ -22,6 +23,13 @@
 Hasse-Jet Duality and a Shifted-Conic Conjecture}
 \author{Hurcheson Asante Ofori and Jeffery Opoku}
 \date{}
+
+\hypersetup{
+  pdftitle={Experiments with Theta Cycles Modulo p2: Hasse-Jet Duality and a Shifted-Conic Conjecture},
+  pdfauthor={Hurcheson Asante Ofori and Jeffery Opoku},
+  pdfsubject={Theta cycles of modular forms modulo prime powers},
+  pdfkeywords={theta cycles, modular forms modulo prime powers, Hasse invariant, Bockstein class, experimental mathematics}
+}
 
 \begin{document}
 \maketitle
@@ -186,7 +194,7 @@ reproducing the computations.
 
 \input{experimental_discussion.tex}
 
-\input{transactions_theorem_skeleton.tex}
+\input{tate_dual_obstruction_classes.tex}
 
 \section{Remaining symbolic identities}
 
@@ -244,7 +252,14 @@ the public repository:
 \begin{center}
 \url{https://github.com/jopoku16/theta-p2-hasse-jet-experiments}.
 \end{center}
+The source and reproducibility archive used for this version are available
+from release \texttt{v1.4.0}:
+\begin{center}
+\url{https://github.com/jopoku16/theta-p2-hasse-jet-experiments/releases/tag/v1.4.0}.
+\end{center}
 
+\begingroup
+\small
 \begin{thebibliography}{99}
 \raggedright
 \bibitem{AHRR2026}
@@ -315,8 +330,9 @@ in \emph{Modular Functions of One Variable III},
 Lecture Notes in Math. 350, Springer, 1973, 1--55.
 
 \end{thebibliography}
+\endgroup
 
-\bigskip
+\medskip
 \noindent\textsc{School of Mathematical and Statistical Sciences,
 University of Texas Rio Grande Valley, Edinburg, Texas 78539, USA}
 
